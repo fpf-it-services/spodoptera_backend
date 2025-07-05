@@ -1,0 +1,641 @@
+[
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "CorrectiveMeasure",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "YOLO",
+        "importPath": "ultralytics",
+        "description": "ultralytics",
+        "isExtraImport": true,
+        "detail": "ultralytics",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "environ",
+        "importPath": "environ",
+        "description": "environ",
+        "isExtraImport": true,
+        "detail": "environ",
+        "documentation": {}
+    },
+    {
+        "label": "env",
+        "importPath": "spodoptera_backend.environ",
+        "description": "spodoptera_backend.environ",
+        "isExtraImport": true,
+        "detail": "spodoptera_backend.environ",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "importPath": "spodoptera_backend.environ",
+        "description": "spodoptera_backend.environ",
+        "isExtraImport": true,
+        "detail": "spodoptera_backend.environ",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Command",
+        "kind": 6,
+        "importPath": "recognition.management.commands.add_measure",
+        "description": "recognition.management.commands.add_measure",
+        "peekOfCode": "class Command(BaseCommand):\n    help = 'Ajoute des mesures correctives pour Spodoptera frugiperda'\n    def handle(self, *args, **options):\n        measures = [\n            (\"Spodoptera détecté\", \"Surveiller régulièrement et retirer manuellement les larves si possible. Appliquer un insecticide biologique en cas d'infestation légère. Consulter un expert pour une intervention ciblée.\"),\n        ]\n        for stage, measure in measures:\n            CorrectiveMeasure.objects.get_or_create(larval_stage=stage, measure=measure)\n        self.stdout.write(self.style.SUCCESS('Mesures ajoutées avec succès'))",
+        "detail": "recognition.management.commands.add_measure",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "recognition.migrations.0001_initial",
+        "description": "recognition.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = []\n    operations = [\n        migrations.CreateModel(\n            name=\"Observation\",\n            fields=[\n                (\n                    \"id\",\n                    models.BigAutoField(",
+        "detail": "recognition.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "recognition.migrations.0002_correctivemeasure",
+        "description": "recognition.migrations.0002_correctivemeasure",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"recognition\", \"0001_initial\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"CorrectiveMeasure\",\n            fields=[\n                (\n                    \"id\",",
+        "detail": "recognition.migrations.0002_correctivemeasure",
+        "documentation": {}
+    },
+    {
+        "label": "RecognitionConfig",
+        "kind": 6,
+        "importPath": "recognition.apps",
+        "description": "recognition.apps",
+        "peekOfCode": "class RecognitionConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"recognition\"",
+        "detail": "recognition.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Observation",
+        "kind": 6,
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "peekOfCode": "class Observation(models.Model):\n    image = models.ImageField(upload_to='images/')\n    larval_stage = models.CharField(max_length=50, blank=True) \n    created_at = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return f\"Observation {self.id}\"\nclass CorrectiveMeasure(models.Model):\n    \"\"\"\n    Modèle pour stocker les mesures correctives associées à chaque stade larvaire de Spodoptera frugiperda.\n    \"\"\"",
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "CorrectiveMeasure",
+        "kind": 6,
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "peekOfCode": "class CorrectiveMeasure(models.Model):\n    \"\"\"\n    Modèle pour stocker les mesures correctives associées à chaque stade larvaire de Spodoptera frugiperda.\n    \"\"\"\n    larval_stage = models.CharField(max_length=50, help_text=\"Stade larvaire (ex: L1, L2, ...)\")\n    measure = models.TextField(help_text=\"Mesure corrective ou conseil à suivre\")\n    def __str__(self):\n        return f\"Measure for {self.larval_stage}\"",
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "ObservationSerializer",
+        "kind": 6,
+        "importPath": "recognition.serializers",
+        "description": "recognition.serializers",
+        "peekOfCode": "class ObservationSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Observation\n        fields = ['id', 'image', 'larval_stage', 'created_at']",
+        "detail": "recognition.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "recognition.urls",
+        "description": "recognition.urls",
+        "peekOfCode": "urlpatterns = [\n    path('predict/', PredictLarvalStage.as_view(), name='predict_larval_stage'),\n]",
+        "detail": "recognition.urls",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_image",
+        "kind": 2,
+        "importPath": "recognition.utils",
+        "description": "recognition.utils",
+        "peekOfCode": "def preprocess_image(image_path):\n    \"\"\"\n    Prétraiter l'image : redimensionner à 640x640, sans suppression d'arrière-plan.\n    \"\"\"\n    img = cv2.imread(image_path)\n    if img is None:\n        raise ValueError(f\"Impossible de charger l'image : {image_path}\")\n    img = cv2.resize(img, (640, 640))\n    cv2.imwrite('preprocessed_image.jpg', img) \n    img_array = img / 255.0",
+        "detail": "recognition.utils",
+        "documentation": {}
+    },
+    {
+        "label": "predict_larval_stage",
+        "kind": 2,
+        "importPath": "recognition.utils",
+        "description": "recognition.utils",
+        "peekOfCode": "def predict_larval_stage(image_path):\n    \"\"\"\n    Détecter si Spodoptera frugiperda est présent dans l'image.\n    \"\"\"\n    img_array = preprocess_image(image_path)\n    results = model.predict(source=image_path, save=False) \n    larval_stage = None\n    confidence = None\n    for r in results:\n        if r.boxes is not None and len(r.boxes) > 0:",
+        "detail": "recognition.utils",
+        "documentation": {}
+    },
+    {
+        "label": "MODEL_PATH",
+        "kind": 5,
+        "importPath": "recognition.utils",
+        "description": "recognition.utils",
+        "peekOfCode": "MODEL_PATH = os.path.join(settings.BASE_DIR, 'models/spodoptera.pt')\nmodel = YOLO(MODEL_PATH)\ndef preprocess_image(image_path):\n    \"\"\"\n    Prétraiter l'image : redimensionner à 640x640, sans suppression d'arrière-plan.\n    \"\"\"\n    img = cv2.imread(image_path)\n    if img is None:\n        raise ValueError(f\"Impossible de charger l'image : {image_path}\")\n    img = cv2.resize(img, (640, 640))",
+        "detail": "recognition.utils",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "recognition.utils",
+        "description": "recognition.utils",
+        "peekOfCode": "model = YOLO(MODEL_PATH)\ndef preprocess_image(image_path):\n    \"\"\"\n    Prétraiter l'image : redimensionner à 640x640, sans suppression d'arrière-plan.\n    \"\"\"\n    img = cv2.imread(image_path)\n    if img is None:\n        raise ValueError(f\"Impossible de charger l'image : {image_path}\")\n    img = cv2.resize(img, (640, 640))\n    cv2.imwrite('preprocessed_image.jpg', img) ",
+        "detail": "recognition.utils",
+        "documentation": {}
+    },
+    {
+        "label": "PredictLarvalStage",
+        "kind": 6,
+        "importPath": "recognition.views",
+        "description": "recognition.views",
+        "peekOfCode": "class PredictLarvalStage(APIView):\n    def post(self, request):\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():\n            observation = serializer.save()\n            detection_result, confidence = predict_larval_stage(observation.image.path)\n            observation.larval_stage = detection_result \n            observation.save()\n            success = detection_result == \"Spodoptera détecté\"\n            measures = CorrectiveMeasure.objects.filter(larval_stage=\"Spodoptera détecté\").values_list('measure', flat=True) if success else []",
+        "detail": "recognition.views",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "spodoptera_backend.asgi",
+        "description": "spodoptera_backend.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "spodoptera_backend.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "spodoptera_backend.environ",
+        "description": "spodoptera_backend.environ",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nenv = environ.Env()\nenviron.Env.read_env(os.path.join(BASE_DIR, \".env\"))",
+        "detail": "spodoptera_backend.environ",
+        "documentation": {}
+    },
+    {
+        "label": "env",
+        "kind": 5,
+        "importPath": "spodoptera_backend.environ",
+        "description": "spodoptera_backend.environ",
+        "peekOfCode": "env = environ.Env()\nenviron.Env.read_env(os.path.join(BASE_DIR, \".env\"))",
+        "detail": "spodoptera_backend.environ",
+        "documentation": {}
+    },
+    {
+        "label": "#BASE_DIR",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "#BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "ALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOWED_ORIGINS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOW_CREDENTIALS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOW_HEADERS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"recognition\",\n]",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\nROOT_URLCONF = \"spodoptera_backend.urls\"",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "ROOT_URLCONF = \"spodoptera_backend.urls\"\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "WSGI_APPLICATION = \"spodoptera_backend.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": env(\"DATABASE_HOST\"),",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "DATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": env(\"DATABASE_HOST\"),\n        \"PORT\": env(\"DATABASE_PORT\"),\n    }\n}",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "LANGUAGE_CODE = \"en-us\"\nTIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Directory where collectstatic will copy all static files (used in production)\nSTATIC_ROOT = os.path.join(BASE_DIR, \"staticfiles\")\n# Directories Django will search for static files in development",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "TIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Directory where collectstatic will copy all static files (used in production)\nSTATIC_ROOT = os.path.join(BASE_DIR, \"staticfiles\")\n# Directories Django will search for static files in development\nSTATICFILES_DIRS = [",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Directory where collectstatic will copy all static files (used in production)\nSTATIC_ROOT = os.path.join(BASE_DIR, \"staticfiles\")\n# Directories Django will search for static files in development\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, \"static\"),  # Ensure this exists",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Directory where collectstatic will copy all static files (used in production)\nSTATIC_ROOT = os.path.join(BASE_DIR, \"staticfiles\")\n# Directories Django will search for static files in development\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, \"static\"),  # Ensure this exists\n]",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "STATIC_URL = \"/static/\"\n# Directory where collectstatic will copy all static files (used in production)\nSTATIC_ROOT = os.path.join(BASE_DIR, \"staticfiles\")\n# Directories Django will search for static files in development\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, \"static\"),  # Ensure this exists\n]\n# Media files\nMEDIA_ROOT = os.path.join(BASE_DIR, \"media\")\nMEDIA_URL = \"/media/\"",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, \"staticfiles\")\n# Directories Django will search for static files in development\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, \"static\"),  # Ensure this exists\n]\n# Media files\nMEDIA_ROOT = os.path.join(BASE_DIR, \"media\")\nMEDIA_URL = \"/media/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "STATICFILES_DIRS = [\n    os.path.join(BASE_DIR, \"static\"),  # Ensure this exists\n]\n# Media files\nMEDIA_ROOT = os.path.join(BASE_DIR, \"media\")\nMEDIA_URL = \"/media/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, \"media\")\nMEDIA_URL = \"/media/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "MEDIA_URL = \"/media/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "spodoptera_backend.urls",
+        "description": "spodoptera_backend.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path('api/', include('recognition.urls')),\n]",
+        "detail": "spodoptera_backend.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "spodoptera_backend.wsgi",
+        "description": "spodoptera_backend.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "spodoptera_backend.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"spodoptera_backend.settings\")\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]
