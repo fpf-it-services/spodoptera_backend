@@ -1,106 +1,10 @@
 [
     {
-        "label": "BaseCommand",
-        "importPath": "django.core.management.base",
-        "description": "django.core.management.base",
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
         "isExtraImport": true,
-        "detail": "django.core.management.base",
-        "documentation": {}
-    },
-    {
-        "label": "CorrectiveMeasure",
-        "importPath": "recognition.models",
-        "description": "recognition.models",
-        "isExtraImport": true,
-        "detail": "recognition.models",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
-        "isExtraImport": true,
-        "detail": "django.contrib",
-        "documentation": {}
-    },
-    {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
-        "isExtraImport": true,
-        "detail": "django.contrib",
-        "documentation": {}
-    },
-    {
-        "label": "AppConfig",
-        "importPath": "django.apps",
-        "description": "django.apps",
-        "isExtraImport": true,
-        "detail": "django.apps",
-        "documentation": {}
-    },
-    {
-        "label": "serializers",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "status",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "TestCase",
-        "importPath": "django.test",
-        "description": "django.test",
-        "isExtraImport": true,
-        "detail": "django.test",
+        "detail": "django.urls",
         "documentation": {}
     },
     {
@@ -128,29 +32,295 @@
         "documentation": {}
     },
     {
-        "label": "cv2",
-        "kind": 6,
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
         "isExtraImport": true,
-        "importPath": "cv2",
-        "description": "cv2",
-        "detail": "cv2",
+        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
-        "label": "numpy",
-        "kind": 6,
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
         "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
+        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
-        "label": "YOLO",
-        "importPath": "ultralytics",
-        "description": "ultralytics",
+        "label": "authenticate",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
         "isExtraImport": true,
-        "detail": "ultralytics",
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "authenticate",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "django.contrib.auth.decorators",
+        "description": "django.contrib.auth.decorators",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "TruncDay",
+        "importPath": "django.db.models.functions",
+        "description": "django.db.models.functions",
+        "isExtraImport": true,
+        "detail": "django.db.models.functions",
+        "documentation": {}
+    },
+    {
+        "label": "TruncMonth",
+        "importPath": "django.db.models.functions",
+        "description": "django.db.models.functions",
+        "isExtraImport": true,
+        "detail": "django.db.models.functions",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfile",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "Observation",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "ZoneAgro",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "CustomUser",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "CorrectiveMeasure",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "CorrectiveMeasure",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfile",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "ZoneAgro",
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "isExtraImport": true,
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.models",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AbstractUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.validators",
+        "description": "django.contrib.auth.validators",
+        "detail": "django.contrib.auth.validators",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "django.utils.timezone",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "detail": "django.utils.timezone",
         "documentation": {}
     },
     {
@@ -162,12 +332,107 @@
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
         "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "IntegrityError",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "template",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "rest_framework.exceptions",
+        "description": "rest_framework.exceptions",
+        "isExtraImport": true,
+        "detail": "rest_framework.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "geodesic",
+        "importPath": "geopy.distance",
+        "description": "geopy.distance",
+        "isExtraImport": true,
+        "detail": "geopy.distance",
         "documentation": {}
     },
     {
@@ -184,6 +449,23 @@
         "description": "rest_framework.response",
         "isExtraImport": true,
         "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Token",
+        "importPath": "rest_framework.authtoken.models",
+        "description": "rest_framework.authtoken.models",
+        "isExtraImport": true,
+        "detail": "rest_framework.authtoken.models",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
         "documentation": {}
     },
     {
@@ -211,11 +493,28 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "environ",
         "importPath": "environ",
         "description": "environ",
         "isExtraImport": true,
         "detail": "environ",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
         "documentation": {}
     },
     {
@@ -243,12 +542,137 @@
         "documentation": {}
     },
     {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "psycopg2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "psycopg2",
+        "description": "psycopg2",
+        "detail": "psycopg2",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "sys",
         "description": "sys",
         "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "recognition.admin.urls",
+        "description": "recognition.admin.urls",
+        "peekOfCode": "urlpatterns = [\n    path('dashboard/', views.index, name='dashboard'),\n    path('', views.index, name='dashboard'),\n    path('get_users/', views.get_users, name='get_users'),    \n    path('zones-agro/', views.zone_agro_list, name='zones_agro_list'),\n    path('zones-agro/create/', views.create_zone_agro, name='create_zone_agro'),\n    path('measures/', views.measures_list, name='measures_list'),\n    path('measures/create/', views.create_measure, name='create_measure'),\n    path('measures/update/<int:measure_id>/', views.update_measure, name='update_measure'),\n    path('measures/delete/<int:measure_id>/', views.delete_measure, name='delete_measure'),",
+        "detail": "recognition.admin.urls",
+        "documentation": {}
+    },
+    {
+        "label": "measures_list",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def measures_list(request):\n    measures = CorrectiveMeasure.objects.all().order_by('larval_stage')\n    return render(request, 'pages/measures.html', {'measures': measures})\ndef create_measure(request):\n    if request.method == 'POST':\n        larval_stage = request.POST.get('larval_stage')\n        measure = request.POST.get('measure')\n        if not larval_stage or not measure:\n            messages.error(request, 'Tous les champs sont obligatoires')\n            return redirect('measures_list')",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "create_measure",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def create_measure(request):\n    if request.method == 'POST':\n        larval_stage = request.POST.get('larval_stage')\n        measure = request.POST.get('measure')\n        if not larval_stage or not measure:\n            messages.error(request, 'Tous les champs sont obligatoires')\n            return redirect('measures_list')\n        try:\n            CorrectiveMeasure.objects.create(\n                larval_stage=larval_stage,",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "update_measure",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def update_measure(request, measure_id):\n    if request.method == 'POST':\n        measure = CorrectiveMeasure.objects.filter(id=measure_id).first()\n        if not measure:\n            messages.error(request, 'Mesure non trouvée')\n            return redirect('measures_list')\n        larval_stage = request.POST.get('larval_stage')\n        measure_text = request.POST.get('measure')\n        if not larval_stage or not measure_text:\n            messages.error(request, 'Tous les champs sont obligatoires')",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_measure",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def delete_measure(request, measure_id):\n    if request.method == 'POST':\n        measure = CorrectiveMeasure.objects.filter(id=measure_id).first()\n        if not measure:\n            messages.error(request, 'Mesure non trouvée')\n            return redirect('measures_list')\n        try:\n            measure.delete()\n            messages.success(request, 'Mesure supprimée avec succès')\n        except Exception as e:",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "zone_agro_list",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def zone_agro_list(request):\n    zones = ZoneAgro.objects.all()\n    return render(request, 'pages/zones_agro.html', {'zones': zones})\ndef create_zone_agro(request):\n    if request.method == 'POST':\n        name = request.POST.get('name')\n        latitude = request.POST.get('latitude')\n        longitude = request.POST.get('longitude')\n        rayon = request.POST.get('rayon')\n        try:",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "create_zone_agro",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def create_zone_agro(request):\n    if request.method == 'POST':\n        name = request.POST.get('name')\n        latitude = request.POST.get('latitude')\n        longitude = request.POST.get('longitude')\n        rayon = request.POST.get('rayon')\n        try:\n            ZoneAgro.objects.create(\n                name=name,\n                latitude=float(latitude),",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def index(request):\n    total_users = UserProfile.objects.filter(is_admin=False).count()\n    total_tests = Observation.objects.count()\n    successful_tests = Observation.objects.filter(success=True).count()\n    success_percentage = (successful_tests / total_tests * 100) if total_tests > 0 else 0\n    failed_percentage = (100 - success_percentage) if total_tests > 0 else 0\n    tests_by_zone = Observation.objects.values('zone_agro__name').annotate(\n        test_count=Count('id')\n    ).order_by('zone_agro__name')\n    total_tests = max(total_tests, 1) ",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_users",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def get_users(request):\n    users = CustomUser.objects.annotate(\n        test_count=Count('userprofile__observation')\n    ).select_related('userprofile').all()\n    context = {\n        'users': users,\n    }\n    return render(request, 'pages/users.html', context)\ndef login_view(request):\n    if request.method == 'POST':",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "login_view",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def login_view(request):\n    if request.method == 'POST':\n        username = request.POST.get('username')\n        password = request.POST.get('password')\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)\n            return redirect('dashboard')\n        else:\n            messages.error(request, 'Nom d\\'utilisateur ou mot de passe incorrect')",
+        "detail": "recognition.admin.views",
+        "documentation": {}
+    },
+    {
+        "label": "logout_view",
+        "kind": 2,
+        "importPath": "recognition.admin.views",
+        "description": "recognition.admin.views",
+        "peekOfCode": "def logout_view(request):\n    if request.user.is_authenticated:\n        logout(request)\n        messages.success(request, 'Vous avez été déconnecté avec succès.')\n    return redirect('login')",
+        "detail": "recognition.admin.views",
         "documentation": {}
     },
     {
@@ -261,21 +685,48 @@
         "documentation": {}
     },
     {
+        "label": "Command",
+        "kind": 6,
+        "importPath": "recognition.management.commands.create_default_users",
+        "description": "recognition.management.commands.create_default_users",
+        "peekOfCode": "class Command(BaseCommand):\n    help = 'Creates two default users with their profiles'\n    def handle(self, *args, **kwargs):\n        if not User.objects.filter(username='johndoe@example.com').exists():\n            user1 = User.objects.create_user(\n                username='johndoe@example.com',\n                email='johndoe@example.com',\n                password='password123'\n            )\n            UserProfile.objects.create(",
+        "detail": "recognition.management.commands.create_default_users",
+        "documentation": {}
+    },
+    {
         "label": "Migration",
         "kind": 6,
         "importPath": "recognition.migrations.0001_initial",
         "description": "recognition.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = []\n    operations = [\n        migrations.CreateModel(\n            name=\"Observation\",\n            fields=[\n                (\n                    \"id\",\n                    models.BigAutoField(",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        (\"auth\", \"0012_alter_user_first_name_max_length\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"CorrectiveMeasure\",\n            fields=[\n                (",
         "detail": "recognition.migrations.0001_initial",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "recognition.migrations.0002_correctivemeasure",
-        "description": "recognition.migrations.0002_correctivemeasure",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"recognition\", \"0001_initial\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"CorrectiveMeasure\",\n            fields=[\n                (\n                    \"id\",",
-        "detail": "recognition.migrations.0002_correctivemeasure",
+        "importPath": "recognition.migrations.0002_userprofile_is_admin",
+        "description": "recognition.migrations.0002_userprofile_is_admin",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"recognition\", \"0001_initial\"),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name=\"userprofile\",\n            name=\"is_admin\",\n            field=models.BooleanField(\n                default=False,",
+        "detail": "recognition.migrations.0002_userprofile_is_admin",
+        "documentation": {}
+    },
+    {
+        "label": "divide",
+        "kind": 2,
+        "importPath": "recognition.templatetags.custom_filters",
+        "description": "recognition.templatetags.custom_filters",
+        "peekOfCode": "def divide(value, arg):\n    try:\n        return (value / arg * 100) if arg else 0\n    except (ZeroDivisionError, TypeError):\n        return 0",
+        "detail": "recognition.templatetags.custom_filters",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 5,
+        "importPath": "recognition.templatetags.custom_filters",
+        "description": "recognition.templatetags.custom_filters",
+        "peekOfCode": "register = template.Library()\n@register.filter\ndef divide(value, arg):\n    try:\n        return (value / arg * 100) if arg else 0\n    except (ZeroDivisionError, TypeError):\n        return 0",
+        "detail": "recognition.templatetags.custom_filters",
         "documentation": {}
     },
     {
@@ -288,11 +739,38 @@
         "documentation": {}
     },
     {
+        "label": "ZoneAgro",
+        "kind": 6,
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "peekOfCode": "class ZoneAgro(models.Model):\n    name = models.CharField(max_length=100, unique=True)\n    description = models.TextField(blank=True, null=True)\n    latitude = models.FloatField()\n    longitude = models.FloatField()\n    rayon = models.FloatField(help_text=\"Rayon en mètres autour du point central\") \n    def __str__(self):\n        return self.name\nclass CustomUser(AbstractUser):\n    # username = None",
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "CustomUser",
+        "kind": 6,
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "peekOfCode": "class CustomUser(AbstractUser):\n    # username = None\n    email = models.EmailField(blank=True, null=True, unique=False)\n    first_name = models.CharField(max_length=100, unique=True) \n    USERNAME_FIELD = 'first_name'\n    REQUIRED_FIELDS = ['username'] \nclass UserProfile(models.Model):\n    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  \n    last_name = models.CharField(max_length=100)\n    is_admin = models.BooleanField(default=False, help_text=\"Indique si l'utilisateur est un administrateur\")",
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfile",
+        "kind": 6,
+        "importPath": "recognition.models",
+        "description": "recognition.models",
+        "peekOfCode": "class UserProfile(models.Model):\n    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  \n    last_name = models.CharField(max_length=100)\n    is_admin = models.BooleanField(default=False, help_text=\"Indique si l'utilisateur est un administrateur\")\n    created_at = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return f\"{self.user.first_name} {self.last_name}\"\nclass Observation(models.Model):\n    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)\n    image = models.ImageField(upload_to='images/')",
+        "detail": "recognition.models",
+        "documentation": {}
+    },
+    {
         "label": "Observation",
         "kind": 6,
         "importPath": "recognition.models",
         "description": "recognition.models",
-        "peekOfCode": "class Observation(models.Model):\n    image = models.ImageField(upload_to='images/')\n    larval_stage = models.CharField(max_length=50, blank=True) \n    created_at = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return f\"Observation {self.id}\"\nclass CorrectiveMeasure(models.Model):\n    \"\"\"\n    Modèle pour stocker les mesures correctives associées à chaque stade larvaire de Spodoptera frugiperda.\n    \"\"\"",
+        "peekOfCode": "class Observation(models.Model):\n    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)\n    image = models.ImageField(upload_to='images/')\n    larval_stage = models.CharField(max_length=100)\n    confidence = models.FloatField(null=True, blank=True)\n    zone_agro = models.ForeignKey(ZoneAgro, on_delete=models.SET_NULL, null=True, blank=True)\n    latitude = models.FloatField(null=True, blank=True)\n    longitude = models.FloatField(null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    success = models.BooleanField(default=False)",
         "detail": "recognition.models",
         "documentation": {}
     },
@@ -310,7 +788,34 @@
         "kind": 6,
         "importPath": "recognition.serializers",
         "description": "recognition.serializers",
-        "peekOfCode": "class ObservationSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Observation\n        fields = ['id', 'image', 'larval_stage', 'created_at']",
+        "peekOfCode": "class ObservationSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Observation\n        fields = ['image', 'latitude', 'longitude']\nclass UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:\n        model = User",
+        "detail": "recognition.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegisterSerializer",
+        "kind": 6,
+        "importPath": "recognition.serializers",
+        "description": "recognition.serializers",
+        "peekOfCode": "class UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:\n        model = User\n        fields = ['first_name', 'email', 'last_name']\n    def create(self, validated_data):\n        first_name = validated_data.pop('first_name')\n        last_name = validated_data.pop('last_name')",
+        "detail": "recognition.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserLoginSerializer",
+        "kind": 6,
+        "importPath": "recognition.serializers",
+        "description": "recognition.serializers",
+        "peekOfCode": "class UserLoginSerializer(serializers.Serializer):\n    username = serializers.CharField()\n    password = serializers.CharField(write_only=True)",
+        "detail": "recognition.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "recognition.serializers",
+        "description": "recognition.serializers",
+        "peekOfCode": "User = get_user_model()\nclass ObservationSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Observation\n        fields = ['image', 'latitude', 'longitude']\nclass UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:",
         "detail": "recognition.serializers",
         "documentation": {}
     },
@@ -319,43 +824,16 @@
         "kind": 5,
         "importPath": "recognition.urls",
         "description": "recognition.urls",
-        "peekOfCode": "urlpatterns = [\n    path('predict/', PredictLarvalStage.as_view(), name='predict_larval_stage'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('predict/', PredictLarvalStage.as_view(), name='predict_larval_stage'),\n    path('register/', RegisterAPIView.as_view(), name='register'),\n    path('update-test-success/', UpdateTestSuccessView.as_view(), name='update-test-success'),\n    # path('login/', LoginAPIView.as_view(), name='login'),\n]",
         "detail": "recognition.urls",
         "documentation": {}
     },
     {
-        "label": "preprocess_image",
+        "label": "detect_zone_from_coordinates",
         "kind": 2,
         "importPath": "recognition.utils",
         "description": "recognition.utils",
-        "peekOfCode": "def preprocess_image(image_path):\n    \"\"\"\n    Prétraiter l'image : redimensionner à 640x640, sans suppression d'arrière-plan.\n    \"\"\"\n    img = cv2.imread(image_path)\n    if img is None:\n        raise ValueError(f\"Impossible de charger l'image : {image_path}\")\n    img = cv2.resize(img, (640, 640))\n    cv2.imwrite('preprocessed_image.jpg', img) \n    img_array = img / 255.0",
-        "detail": "recognition.utils",
-        "documentation": {}
-    },
-    {
-        "label": "predict_larval_stage",
-        "kind": 2,
-        "importPath": "recognition.utils",
-        "description": "recognition.utils",
-        "peekOfCode": "def predict_larval_stage(image_path):\n    \"\"\"\n    Détecter si Spodoptera frugiperda est présent dans l'image.\n    \"\"\"\n    img_array = preprocess_image(image_path)\n    results = model.predict(source=image_path, save=False) \n    larval_stage = None\n    confidence = None\n    for r in results:\n        if r.boxes is not None and len(r.boxes) > 0:",
-        "detail": "recognition.utils",
-        "documentation": {}
-    },
-    {
-        "label": "MODEL_PATH",
-        "kind": 5,
-        "importPath": "recognition.utils",
-        "description": "recognition.utils",
-        "peekOfCode": "MODEL_PATH = os.path.join(settings.BASE_DIR, 'models/spodoptera.pt')\nmodel = YOLO(MODEL_PATH)\ndef preprocess_image(image_path):\n    \"\"\"\n    Prétraiter l'image : redimensionner à 640x640, sans suppression d'arrière-plan.\n    \"\"\"\n    img = cv2.imread(image_path)\n    if img is None:\n        raise ValueError(f\"Impossible de charger l'image : {image_path}\")\n    img = cv2.resize(img, (640, 640))",
-        "detail": "recognition.utils",
-        "documentation": {}
-    },
-    {
-        "label": "model",
-        "kind": 5,
-        "importPath": "recognition.utils",
-        "description": "recognition.utils",
-        "peekOfCode": "model = YOLO(MODEL_PATH)\ndef preprocess_image(image_path):\n    \"\"\"\n    Prétraiter l'image : redimensionner à 640x640, sans suppression d'arrière-plan.\n    \"\"\"\n    img = cv2.imread(image_path)\n    if img is None:\n        raise ValueError(f\"Impossible de charger l'image : {image_path}\")\n    img = cv2.resize(img, (640, 640))\n    cv2.imwrite('preprocessed_image.jpg', img) ",
+        "peekOfCode": "def detect_zone_from_coordinates(latitude, longitude):\n    \"\"\"\n    Détermine la zone agro à laquelle appartiennent les coordonnées GPS données,\n    en vérifiant si elles se trouvent dans le rayon d'une zone enregistrée.\n    Args:\n        latitude (float): Latitude du point à vérifier\n        longitude (float): Longitude du point à vérifier\n    Returns:\n        ZoneAgro: L'objet ZoneAgro correspondant si trouvé, None sinon\n    \"\"\"",
         "detail": "recognition.utils",
         "documentation": {}
     },
@@ -364,7 +842,43 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class PredictLarvalStage(APIView):\n    def post(self, request):\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():\n            observation = serializer.save()\n            detection_result, confidence = predict_larval_stage(observation.image.path)\n            observation.larval_stage = detection_result \n            observation.save()\n            success = detection_result == \"Spodoptera détecté\"\n            measures = CorrectiveMeasure.objects.filter(larval_stage=\"Spodoptera détecté\").values_list('measure', flat=True) if success else []",
+        "peekOfCode": "class PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():\n            observation = serializer.save()",
+        "detail": "recognition.views",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateTestSuccessView",
+        "kind": 6,
+        "importPath": "recognition.views",
+        "description": "recognition.views",
+        "peekOfCode": "class UpdateTestSuccessView(APIView):\n    def post(self, request):\n        user_id = request.data.get('user_id')\n        test_id = request.data.get('observation_id')\n        success_user = request.data.get('success_according_user')\n        if user_id is None or test_id is None or success_user is None:\n            return Response({\"error\": \"Tous les champs sont requis.\"}, status=status.HTTP_400_BAD_REQUEST)\n        try:\n            user_profile = UserProfile.objects.get(user_id=user_id)\n            observation = Observation.objects.get(id=test_id, user_profile=user_profile)",
+        "detail": "recognition.views",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterAPIView",
+        "kind": 6,
+        "importPath": "recognition.views",
+        "description": "recognition.views",
+        "peekOfCode": "class RegisterAPIView(APIView):\n    def post(self, request):\n        serializer = UserRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response({\n                'user': {\n                    'id': user.id,\n                    'last_name': user.userprofile.last_name,\n                    'first_name': user.first_name,",
+        "detail": "recognition.views",
+        "documentation": {}
+    },
+    {
+        "label": "LoginAPIView",
+        "kind": 6,
+        "importPath": "recognition.views",
+        "description": "recognition.views",
+        "peekOfCode": "class LoginAPIView(APIView):\n    def post(self, request):\n        serializer = UserLoginSerializer(data=request.data)\n        if serializer.is_valid():\n            user = authenticate(\n                request,\n                username=serializer.validated_data['username'],\n                password=serializer.validated_data['password']\n            )\n            if user:",
+        "detail": "recognition.views",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "recognition.views",
+        "description": "recognition.views",
+        "peekOfCode": "User = get_user_model()\nclass PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -400,7 +914,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "#BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True",
+        "peekOfCode": "#BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -409,7 +923,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]",
+        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -418,7 +932,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -427,7 +941,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",",
+        "peekOfCode": "ALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -463,7 +977,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"recognition\",\n]",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"rest_framework.authtoken\",\n    \"recognition\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -481,7 +995,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "ROOT_URLCONF = \"spodoptera_backend.urls\"\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",",
+        "peekOfCode": "ROOT_URLCONF = \"spodoptera_backend.urls\"\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [BASE_DIR / \"template\"],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -490,7 +1004,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",",
+        "peekOfCode": "TEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [BASE_DIR / \"template\"],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -499,7 +1013,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "WSGI_APPLICATION = \"spodoptera_backend.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": env(\"DATABASE_HOST\"),",
+        "peekOfCode": "WSGI_APPLICATION = \"spodoptera_backend.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": socket.gethostbyname(env(\"DATABASE_HOST\")),",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -508,7 +1022,16 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "DATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": env(\"DATABASE_HOST\"),\n        \"PORT\": env(\"DATABASE_PORT\"),\n    }\n}",
+        "peekOfCode": "DATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": socket.gethostbyname(env(\"DATABASE_HOST\")),\n        \"PORT\": env(\"DATABASE_PORT\"),\n    }\n}",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_USER_MODEL",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "AUTH_USER_MODEL = 'recognition.CustomUser'\n# Password validation\n# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -616,7 +1139,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.urls",
         "description": "spodoptera_backend.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path('api/', include('recognition.urls')),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path('api/', include('recognition.urls')),\n    path('admin-stats/', include('recognition.admin.urls')),\n]",
         "detail": "spodoptera_backend.urls",
         "documentation": {}
     },
@@ -627,6 +1150,87 @@
         "description": "spodoptera_backend.wsgi",
         "peekOfCode": "application = get_wsgi_application()",
         "detail": "spodoptera_backend.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "remove_backslashes",
+        "kind": 2,
+        "importPath": "build",
+        "description": "build",
+        "peekOfCode": "def remove_backslashes(content: str) -> str:\n    # Supprimer les backslashes qui précèdent uniquement des guillemets\n    return content.replace('\\\\\\'', '\\'').replace('\\\\\"', '\"')\ndef convert_static_paths(content: str) -> str:\n    print(\"Converting static paths in HTML content...\")\n    if \"{% load static %}\" not in content:\n        content = \"{% load static %}\\n\" + content\n    # Pattern pour src/href avec ../ ou /static/\n    content = re.sub(\n        r'(src|href)=[\"\\'](\\.\\./)*static/(.*?)[\"\\']',",
+        "detail": "build",
+        "documentation": {}
+    },
+    {
+        "label": "convert_static_paths",
+        "kind": 2,
+        "importPath": "build",
+        "description": "build",
+        "peekOfCode": "def convert_static_paths(content: str) -> str:\n    print(\"Converting static paths in HTML content...\")\n    if \"{% load static %}\" not in content:\n        content = \"{% load static %}\\n\" + content\n    # Pattern pour src/href avec ../ ou /static/\n    content = re.sub(\n        r'(src|href)=[\"\\'](\\.\\./)*static/(.*?)[\"\\']',\n        r'\\1=\"{% static \\'\\3\\' %}\"',  # Format exact demandé\n        content,\n        flags=re.IGNORECASE,",
+        "detail": "build",
+        "documentation": {}
+    },
+    {
+        "label": "process_html_files",
+        "kind": 2,
+        "importPath": "build",
+        "description": "build",
+        "peekOfCode": "def process_html_files():\n    print(\"Processing HTML files in 'template/frontend'...\")\n    print(f\"Directory: {TEMPLATE_FRONTEND_DIR}\")\n    print(f\"Chemin absolu du répertoire: {TEMPLATE_FRONTEND_DIR.absolute()}\")\n    print(\"\\nContenu du répertoire:\")\n    for item in TEMPLATE_FRONTEND_DIR.iterdir():\n        print(f\" - {item.name} ({'dossier' if item.is_dir() else 'fichier'})\")\n    html_files = list(TEMPLATE_FRONTEND_DIR.glob(\"*.html\"))\n    print(f\"Found {len(html_files)} HTML files to process\")\n    for file_path in html_files:",
+        "detail": "build",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATE_FRONTEND_DIR",
+        "kind": 5,
+        "importPath": "build",
+        "description": "build",
+        "peekOfCode": "TEMPLATE_FRONTEND_DIR = Path(\"../template/frontend\")\ndef remove_backslashes(content: str) -> str:\n    # Supprimer les backslashes qui précèdent uniquement des guillemets\n    return content.replace('\\\\\\'', '\\'').replace('\\\\\"', '\"')\ndef convert_static_paths(content: str) -> str:\n    print(\"Converting static paths in HTML content...\")\n    if \"{% load static %}\" not in content:\n        content = \"{% load static %}\\n\" + content\n    # Pattern pour src/href avec ../ ou /static/\n    content = re.sub(",
+        "detail": "build",
+        "documentation": {}
+    },
+    {
+        "label": "USER",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "USER = os.getenv(\"user\")\nPASSWORD = os.getenv(\"password\")\nHOST = os.getenv(\"host\")\nPORT = os.getenv(\"port\")\nDBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "PASSWORD",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "PASSWORD = os.getenv(\"password\")\nHOST = os.getenv(\"host\")\nPORT = os.getenv(\"port\")\nDBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,\n        host=HOST,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "HOST",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "HOST = os.getenv(\"host\")\nPORT = os.getenv(\"port\")\nDBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,\n        host=HOST,\n        port=PORT,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "PORT",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "PORT = os.getenv(\"port\")\nDBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,\n        host=HOST,\n        port=PORT,\n        dbname=DBNAME",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "DBNAME",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "DBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,\n        host=HOST,\n        port=PORT,\n        dbname=DBNAME\n    )",
+        "detail": "main",
         "documentation": {}
     },
     {

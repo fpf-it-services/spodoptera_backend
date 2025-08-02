@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %}Spodoptera Frugiperda Detection Espace Admin{% endblock %}</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body
+    x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init=" darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark bg-gray-900': darkMode === true}">
+    {% include 'includes/_preloader.html' %}
+
+    <div class="flex h-screen overflow-hidden">
+
+        {% include 'includes/_sidebar.html' %}
+        <div class="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
+            {% include 'includes/_header.html' %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <script defer src="{% static 'js/bundle.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
