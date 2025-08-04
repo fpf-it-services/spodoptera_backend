@@ -9,10 +9,11 @@ from django.contrib import messages
 from django.utils import timezone
 from recognition.models import UserProfile, Observation, ZoneAgro, CustomUser, CorrectiveMeasure
 
-
+@login_required(login_url='login')
 def measures_list(request):
     measures = CorrectiveMeasure.objects.all().order_by('larval_stage')
     return render(request, 'pages/measures.html', {'measures': measures})
+
 
 def create_measure(request):
     if request.method == 'POST':
@@ -33,6 +34,7 @@ def create_measure(request):
             messages.error(request, f'Erreur lors de la création: {str(e)}')
             
     return redirect('measures_list')
+
 
 def update_measure(request, measure_id):
     if request.method == 'POST':
@@ -73,7 +75,7 @@ def delete_measure(request, measure_id):
             
     return redirect('measures_list')
 
-
+@login_required(login_url='login')
 def zone_agro_list(request):
     zones = ZoneAgro.objects.all()
     return render(request, 'pages/zones_agro.html', {'zones': zones})
@@ -98,7 +100,7 @@ def create_zone_agro(request):
             return redirect('zones_agro_list')
     return render(request, 'pages/zones_agro.html')
 
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def index(request):
     total_users = UserProfile.objects.filter(is_admin=False).count()
 
@@ -195,7 +197,7 @@ def index(request):
 
     return render(request, 'pages/dashboard.html', context)
 
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def get_users(request):
     users = CustomUser.objects.annotate(
         test_count=Count('userprofile__observation')

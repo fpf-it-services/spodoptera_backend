@@ -38,7 +38,35 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-# User Login Serializer
-class UserLoginSerializer(serializers.Serializer):
-    username = serializers.CharField()
-    password = serializers.CharField(write_only=True)
+class AdminRegisterSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(required=True)
+    password = serializers.CharField(write_only=True, required=True)
+    first_name = serializers.CharField(max_length=100, required=True)
+    last_name = serializers.CharField(max_length=100, required=True)
+
+    class Meta:
+        model = User
+        fields = ['email', 'password', 'first_name', 'last_name']
+
+    def create(self, validated_data):
+        email = validated_data.pop('email')
+        password = validated_data.pop('password')
+        first_name = validated_data.pop('first_name')
+        last_name = validated_data.pop('last_name')
+
+        if User.objects.filter(email=email).exists():
+            raise ValidationError({"email": "Cet email est déjà utilisé."})
+        
+        if User.objects.filter(first_name=first_name).exists():
+            raise ValidationError({"first_name": "Ce prénom est déjà utilisé."})
+
+        user = User.objects.create(
+            email=email,
+            username=email,  
+            first_name=first_name
+        )
+        user.set_password(password)
+        user.save()
+
+        UserProfile.objects.create(user=user, last_name=last_name, is_admin=True)
+        return user

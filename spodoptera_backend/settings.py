@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]","spodoptera-backend.onrender.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]","spodoptera-backend.onrender.com", "spodoptera-backend.pythonanywhere.com"]
 
 CORS_ALLOWED_ORIGINS = []
 CORS_ALLOW_CREDENTIALS = True

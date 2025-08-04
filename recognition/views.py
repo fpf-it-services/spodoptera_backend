@@ -2,7 +2,7 @@ import requests
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import ObservationSerializer, UserLoginSerializer, UserRegisterSerializer
+from .serializers import ObservationSerializer, AdminRegisterSerializer, UserRegisterSerializer
 from .utils import detect_zone_from_coordinates
 from .models import CorrectiveMeasure, Observation, UserProfile
 from django.contrib.auth import get_user_model
@@ -12,7 +12,6 @@ import os
 
 User = get_user_model()
 
-# Configuration de l'URL de l'API FastAPI
 FASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')
 
 class PredictLarvalStage(APIView):
@@ -49,7 +48,6 @@ class PredictLarvalStage(APIView):
                     observation.longitude
                 )
 
-            # Sauvegarder l'observation
             observation.save()
             measures = []
             if observation.success:
@@ -104,27 +102,17 @@ class RegisterAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class LoginAPIView(APIView):
+class AdminRegisterAPIView(APIView):
     def post(self, request):
-        serializer = UserLoginSerializer(data=request.data)
+        serializer = AdminRegisterSerializer(data=request.data)
         if serializer.is_valid():
-            user = authenticate(
-                request,
-                username=serializer.validated_data['username'],
-                password=serializer.validated_data['password']
-            )
-            if user:
-                login(request, user)
-                token, created = Token.objects.get_or_create(user=user)
-                return Response({
-                    'token': token.key,
-                    'user': {
-                        'username': user.username,
-                        'email': user.email,
-                        'last_name': user.userprofile.last_name,
-                        'first_name': user.userprofile.first_name,
-                        'zone_agro_select': user.userprofile.zone_agro_select
-                    }
-                }, status=status.HTTP_200_OK)
-            return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+            user = serializer.save()
+            return Response({
+                'user': {
+                    'id': user.id,
+                    'email': user.email,
+                    'first_name': user.first_name,
+                    'is_admin': user.userprofile.is_admin
+                }
+            }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -436,6 +436,15 @@
         "documentation": {}
     },
     {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
         "label": "APIView",
         "importPath": "rest_framework.views",
         "description": "rest_framework.views",
@@ -548,23 +557,6 @@
         "importPath": "re",
         "description": "re",
         "detail": "re",
-        "documentation": {}
-    },
-    {
-        "label": "psycopg2",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "psycopg2",
-        "description": "psycopg2",
-        "detail": "psycopg2",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
         "documentation": {}
     },
     {
@@ -878,7 +870,16 @@
         "kind": 5,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "User = get_user_model()\nclass PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():",
+        "peekOfCode": "User = get_user_model()\n# Configuration de l'URL de l'API FastAPI\nFASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')\nclass PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)",
+        "detail": "recognition.views",
+        "documentation": {}
+    },
+    {
+        "label": "FASTAPI_URL",
+        "kind": 5,
+        "importPath": "recognition.views",
+        "description": "recognition.views",
+        "peekOfCode": "FASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')\nclass PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -914,7 +915,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "#BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True",
+        "peekOfCode": "#BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -923,7 +924,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]",
+        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -932,7 +933,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -941,7 +942,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",",
+        "peekOfCode": "ALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1186,51 +1187,6 @@
         "description": "build",
         "peekOfCode": "TEMPLATE_FRONTEND_DIR = Path(\"../template/frontend\")\ndef remove_backslashes(content: str) -> str:\n    # Supprimer les backslashes qui précèdent uniquement des guillemets\n    return content.replace('\\\\\\'', '\\'').replace('\\\\\"', '\"')\ndef convert_static_paths(content: str) -> str:\n    print(\"Converting static paths in HTML content...\")\n    if \"{% load static %}\" not in content:\n        content = \"{% load static %}\\n\" + content\n    # Pattern pour src/href avec ../ ou /static/\n    content = re.sub(",
         "detail": "build",
-        "documentation": {}
-    },
-    {
-        "label": "USER",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "USER = os.getenv(\"user\")\nPASSWORD = os.getenv(\"password\")\nHOST = os.getenv(\"host\")\nPORT = os.getenv(\"port\")\nDBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "PASSWORD",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "PASSWORD = os.getenv(\"password\")\nHOST = os.getenv(\"host\")\nPORT = os.getenv(\"port\")\nDBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,\n        host=HOST,",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "HOST",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "HOST = os.getenv(\"host\")\nPORT = os.getenv(\"port\")\nDBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,\n        host=HOST,\n        port=PORT,",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "PORT",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "PORT = os.getenv(\"port\")\nDBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,\n        host=HOST,\n        port=PORT,\n        dbname=DBNAME",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "DBNAME",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "DBNAME = os.getenv(\"dbname\")\n# Connect to the database\ntry:\n    connection = psycopg2.connect(\n        user=USER,\n        password=PASSWORD,\n        host=HOST,\n        port=PORT,\n        dbname=DBNAME\n    )",
-        "detail": "main",
         "documentation": {}
     },
     {
