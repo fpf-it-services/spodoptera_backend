@@ -7,12 +7,16 @@ from .utils import detect_zone_from_coordinates
 from .models import CorrectiveMeasure, Observation, UserProfile
 from django.contrib.auth import get_user_model
 import os
+from django.views.decorators.csrf import csrf_exempt
 
 User = get_user_model()
 
 FASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')
+HF_TOKEN = os.getenv("HF_TOKEN")
 
 class PredictLarvalStage(APIView):
+    
+    @csrf_exempt
     def post(self, request): 
         user_id = request.data.get("user_id")
         try:
@@ -27,7 +31,8 @@ class PredictLarvalStage(APIView):
             try:
                 with open(observation.image.path, 'rb') as img_file:
                     files = {'file': (observation.image.name, img_file, 'image/jpeg')}
-                    response = requests.post(f"{FASTAPI_URL}/predict/", files=files)
+                    headers = { "Authorization": f"Bearer {HF_TOKEN}"}
+                    response = requests.post(f"{FASTAPI_URL}/predict/", files=files, headers=headers)
                 if response.status_code != 200:
                     raise Exception(f"Erreur API FastAPI: {response.text}")
                 
@@ -64,6 +69,8 @@ class PredictLarvalStage(APIView):
 
 
 class UpdateTestSuccessView(APIView):
+    
+    @csrf_exempt
     def post(self, request):
         user_id = request.data.get('user_id')
         test_id = request.data.get('observation_id')
@@ -86,6 +93,8 @@ class UpdateTestSuccessView(APIView):
 
 
 class RegisterAPIView(APIView):
+    
+    @csrf_exempt
     def post(self, request):
         serializer = UserRegisterSerializer(data=request.data)
         if serializer.is_valid():
@@ -101,7 +110,10 @@ class RegisterAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+
 class AdminRegisterAPIView(APIView):
+    
+    @csrf_exempt
     def post(self, request):
         serializer = AdminRegisterSerializer(data=request.data)
         if serializer.is_valid():

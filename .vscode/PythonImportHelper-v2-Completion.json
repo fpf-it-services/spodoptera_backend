@@ -48,6 +48,22 @@
         "documentation": {}
     },
     {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
         "label": "authenticate",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -980,7 +996,7 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():\n            observation = serializer.save(user_profile=user.userprofile)",
+        "peekOfCode": "class PredictLarvalStage(APIView):\n    @csrf_exempt\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -989,7 +1005,7 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class UpdateTestSuccessView(APIView):\n    def post(self, request):\n        user_id = request.data.get('user_id')\n        test_id = request.data.get('observation_id')\n        success_user = request.data.get('success_according_user')\n        if user_id is None or test_id is None or success_user is None:\n            return Response({\"error\": \"Tous les champs sont requis.\"}, status=status.HTTP_400_BAD_REQUEST)\n        try:\n            user_profile = UserProfile.objects.get(user_id=user_id)\n            observation = Observation.objects.get(id=test_id, user_profile=user_profile)",
+        "peekOfCode": "class UpdateTestSuccessView(APIView):\n    @csrf_exempt\n    def post(self, request):\n        user_id = request.data.get('user_id')\n        test_id = request.data.get('observation_id')\n        success_user = request.data.get('success_according_user')\n        if user_id is None or test_id is None or success_user is None:\n            return Response({\"error\": \"Tous les champs sont requis.\"}, status=status.HTTP_400_BAD_REQUEST)\n        try:\n            user_profile = UserProfile.objects.get(user_id=user_id)",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -998,7 +1014,7 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class RegisterAPIView(APIView):\n    def post(self, request):\n        serializer = UserRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response({\n                'success': True,\n                'user': {\n                    'id': user.id,\n                    'last_name': user.userprofile.last_name,",
+        "peekOfCode": "class RegisterAPIView(APIView):\n    @csrf_exempt\n    def post(self, request):\n        serializer = UserRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response({\n                'success': True,\n                'user': {\n                    'id': user.id,",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -1007,7 +1023,7 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class AdminRegisterAPIView(APIView):\n    def post(self, request):\n        serializer = AdminRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response({\n                'user': {\n                    'id': user.id,\n                    'email': user.email,\n                    'first_name': user.first_name,",
+        "peekOfCode": "class AdminRegisterAPIView(APIView):\n    @csrf_exempt\n    def post(self, request):\n        serializer = AdminRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response({\n                'user': {\n                    'id': user.id,\n                    'email': user.email,",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -1016,7 +1032,7 @@
         "kind": 5,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "User = get_user_model()\nFASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')\nclass PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)",
+        "peekOfCode": "User = get_user_model()\nFASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')\nHF_TOKEN = os.getenv(\"HF_TOKEN\")\nclass PredictLarvalStage(APIView):\n    @csrf_exempt\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -1025,7 +1041,16 @@
         "kind": 5,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "FASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')\nclass PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():",
+        "peekOfCode": "FASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')\nHF_TOKEN = os.getenv(\"HF_TOKEN\")\nclass PredictLarvalStage(APIView):\n    @csrf_exempt\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)",
+        "detail": "recognition.views",
+        "documentation": {}
+    },
+    {
+        "label": "HF_TOKEN",
+        "kind": 5,
+        "importPath": "recognition.views",
+        "description": "recognition.views",
+        "peekOfCode": "HF_TOKEN = os.getenv(\"HF_TOKEN\")\nclass PredictLarvalStage(APIView):\n    @csrf_exempt\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -1061,7 +1086,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "#BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True",
+        "peekOfCode": "#BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"p01--spodoptera-backend--g8549jdrj8hj.code.run\"]\nCORS_ALLOW_ALL_ORIGINS = True \nCORS_ALLOW_CREDENTIALS = True",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1070,7 +1095,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]",
+        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"p01--spodoptera-backend--g8549jdrj8hj.code.run\"]\nCORS_ALLOW_ALL_ORIGINS = True \nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1079,7 +1104,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"p01--spodoptera-backend--g8549jdrj8hj.code.run\"]\nCORS_ALLOW_ALL_ORIGINS = True \nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1088,16 +1113,16 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",",
+        "peekOfCode": "ALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"p01--spodoptera-backend--g8549jdrj8hj.code.run\"]\nCORS_ALLOW_ALL_ORIGINS = True \nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\", ",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
     {
-        "label": "CORS_ALLOWED_ORIGINS",
+        "label": "CORS_ALLOW_ALL_ORIGINS",
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "CORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
+        "peekOfCode": "CORS_ALLOW_ALL_ORIGINS = True \nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\", \n]",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1106,7 +1131,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",",
+        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\", \n]\nCSRF_COOKIE_SAMESITE = 'Lax' ",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1115,7 +1140,52 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "CORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
+        "peekOfCode": "CORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\", \n]\nCSRF_COOKIE_SAMESITE = 'Lax' \nCSRF_COOKIE_SECURE = True ",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_TRUSTED_ORIGINS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\", \n]\nCSRF_COOKIE_SAMESITE = 'Lax' \nCSRF_COOKIE_SECURE = True \nSESSION_COOKIE_SAMESITE = 'Lax'\nSESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_COOKIE_SAMESITE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CSRF_COOKIE_SAMESITE = 'Lax' \nCSRF_COOKIE_SECURE = True \nSESSION_COOKIE_SAMESITE = 'Lax'\nSESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_COOKIE_SECURE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CSRF_COOKIE_SECURE = True \nSESSION_COOKIE_SAMESITE = 'Lax'\nSESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_COOKIE_SAMESITE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "SESSION_COOKIE_SAMESITE = 'Lax'\nSESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_COOKIE_SECURE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "SESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"corsheaders\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1124,7 +1194,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"rest_framework.authtoken\",\n    \"recognition\",",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"corsheaders\",\n    \"rest_framework\",\n    \"rest_framework.authtoken\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1133,7 +1203,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\nROOT_URLCONF = \"spodoptera_backend.urls\"",
+        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"whitenoise.middleware.WhiteNoiseMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"corsheaders.middleware.CorsMiddleware\", \n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1160,7 +1230,16 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "WSGI_APPLICATION = \"spodoptera_backend.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": env(\"DATABASE_HOST\"),",
+        "peekOfCode": "WSGI_APPLICATION = \"spodoptera_backend.wsgi.application\"\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_STORAGE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": env(\"DATABASE_HOST\"),",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
