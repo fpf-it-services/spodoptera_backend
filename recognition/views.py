@@ -6,8 +6,6 @@ from .serializers import ObservationSerializer, AdminRegisterSerializer, UserReg
 from .utils import detect_zone_from_coordinates
 from .models import CorrectiveMeasure, Observation, UserProfile
 from django.contrib.auth import get_user_model
-from django.contrib.auth import authenticate, login
-from rest_framework.authtoken.models import Token
 import os
 
 User = get_user_model()
@@ -24,7 +22,7 @@ class PredictLarvalStage(APIView):
         
         serializer = ObservationSerializer(data=request.data)
         if serializer.is_valid():
-            observation = serializer.save()
+            observation = serializer.save(user_profile=user.userprofile)
             observation.user_profile = user.userprofile 
             try:
                 with open(observation.image.path, 'rb') as img_file:
@@ -35,7 +33,7 @@ class PredictLarvalStage(APIView):
                 
                 api_result = response.json()
                 
-                observation.larval_stage = api_result.get('larval_stage', 'Aucun Spodoptera détecté')
+                observation.larval_stage = "Spodoptera détecté" if api_result.get('larval_stage') == "Spodoptera détecté" else "Aucun Spodoptera détecté"
                 observation.success = (api_result.get('larval_stage') == "Spodoptera détecté")
                 confidence = api_result.get('confidence')
                 
@@ -51,14 +49,14 @@ class PredictLarvalStage(APIView):
             observation.save()
             measures = []
             if observation.success:
-                measures = CorrectiveMeasure.objects.filter(
-                    larval_stage=observation.larval_stage
-                ).values_list('measure', flat=True)
+                measure = CorrectiveMeasure.objects.order_by('-order').first()
+                if measure:
+                    measures = [measure.measure]
 
             return Response({
                 'success': observation.success,
                 'test_id': observation.id,
-                'corrective_measures': list(measures),
+                'corrective_measures': measures,  
                 'confidence': confidence
             }, status=status.HTTP_201_CREATED)
         
@@ -79,11 +77,11 @@ class UpdateTestSuccessView(APIView):
             observation = Observation.objects.get(id=test_id, user_profile=user_profile)
             observation.success_according_user = success_user
             observation.save()
-            return Response({"message": "Observation mise à jour avec succès."}, status=status.HTTP_200_OK)
+            return Response({"success": True, "message": "Observation mise à jour avec succès."}, status=status.HTTP_200_OK)
         except UserProfile.DoesNotExist:
-            return Response({"error": "Profil utilisateur introuvable."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"success": False, "error": "Profil utilisateur introuvable."}, status=status.HTTP_404_NOT_FOUND)
         except Observation.DoesNotExist:
-            return Response({"error": "Observation introuvable."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"success": False, "error": "Observation introuvable."}, status=status.HTTP_404_NOT_FOUND)
 
 
 
@@ -93,6 +91,7 @@ class RegisterAPIView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             return Response({
+                'success': True,
                 'user': {
                     'id': user.id,
                     'last_name': user.userprofile.last_name,

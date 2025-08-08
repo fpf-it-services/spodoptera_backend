@@ -12,7 +12,7 @@
                     <ol class="flex items-center gap-1.5">
                         <li>
                             <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400"
-                                href="#">
+                                href="{% url 'dashboard' %}">
                                 Dashboard
                                 <svg class="stroke-current" width="17" height="16" viewBox="0 0 17 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -64,6 +64,12 @@
                                                     Status</p>
                                             </div>
                                         </th>
+                                        <th class="px-5 py-3 sm:px-6">
+                                            <div class="flex items-center">
+                                                <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                                    Actions</p>
+                                            </div>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
@@ -91,7 +97,7 @@
                                         <td class="px-5 py-4 sm:px-6">
                                             <div class="flex items-center">
                                                 <p class="text-gray-500 text-theme-sm dark:text-gray-400">
-                                                    Testeur
+                                                    {% if user.userprofile.is_admin %}Administrateur{% else %}Testeur{% endif %}
                                                 </p>
                                             </div>
                                         </td>
@@ -110,12 +116,22 @@
                                                 </p>
                                             </div>
                                         </td>
+                                        <td class="px-5 py-4 sm:px-6">
+                                            <div class="flex items-center">
+                                                {% if request.user.userprofile.is_admin %}
+                                                <button
+                                                    class="open-lightbox inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-theme-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
+                                                    data-user-id="{{ user.id }}">
+                                                    Voir les images
+                                                </button>
+                                                {% endif %}
+                                            </div>
+                                        </td>
                                     </tr>
                                     {% empty %}
                                     <tr>
                                         <td colspan="5" class="px-5 py-4 sm:px-6 text-center">
-                                            <p class="text-gray-500 text-theme-sm dark:text-gray-400">Aucun utilisateur trouvé.
-                                            </p>
+                                            <p class="text-gray-500 text-theme-sm dark:text-gray-400">Aucun utilisateur trouvé.</p>
                                         </td>
                                     </tr>
                                     {% endfor %}
@@ -128,4 +144,189 @@
         </div>
     </div>
 </main>
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+<style>
+    .glightbox-container .gslide-media {
+        max-width: 80%;
+        max-height: 80%;
+    }
+    .gslide-description {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        color: white;
+    }
+    .image-checkbox {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+    }
+    .glightbox-actions {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+    .btn-primary {
+        background-color: #3b82f6;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin-right: 8px;
+    }
+    .btn-secondary {
+        background-color: #6b7280;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin-right: 8px;
+    }
+    .btn-danger {
+        background-color: #ef4444;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+    }
+</style>
+{% endblock %}
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.open-lightbox');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const userId = button.getAttribute('data-user-id');
+                fetch(`/get_user_images/${userId}/`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Accès non autorisé.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.images.length === 0) {
+                            Swal.fire({
+                                icon: 'info',
+                                title: 'Aucune image',
+                                text: 'Aucune image disponible pour cet utilisateur.',
+                                confirmButtonText: 'OK'
+                            });
+                            return;
+                        }
+
+                        const images = data.images.map(image => ({
+                            href: image.url,
+                            description: `Test ID: ${image.id} - Stade: ${image.larval_stage}`,
+                            'data-id': image.id
+                        }));
+
+                        const lightbox = GLightbox({
+                            elements: images,
+                            autoplayVideos: false,
+                            touchNavigation: true,
+                            onOpen: () => {
+                                const slides = document.querySelectorAll('.gslide');
+                                slides.forEach(slide => {
+                                    const checkbox = document.createElement('input');
+                                    checkbox.type = 'checkbox';
+                                    checkbox.className = 'image-checkbox';
+                                    checkbox.value = slide.getAttribute('data-id');
+                                    slide.prepend(checkbox);
+                                });
+
+                                const actions = document.createElement('div');
+                                actions.className = 'glightbox-actions';
+                                actions.innerHTML = `
+                                    <button class="select-all btn btn-primary">Tout sélectionner</button>
+                                    <button class="deselect-all btn btn-secondary">Tout désélectionner</button>
+                                    <button class="delete-selected btn btn-danger">Supprimer sélection</button>
+                                `;
+                                document.querySelector('.glightbox-container').append(actions);
+
+                                document.querySelector('.select-all').addEventListener('click', () => {
+                                    document.querySelectorAll('.image-checkbox').forEach(cb => cb.checked = true);
+                                });
+                                document.querySelector('.deselect-all').addEventListener('click', () => {
+                                    document.querySelectorAll('.image-checkbox').forEach(cb => cb.checked = false);
+                                });
+                                document.querySelector('.delete-selected').addEventListener('click', () => {
+                                    const selectedIds = Array.from(document.querySelectorAll('.image-checkbox:checked')).map(cb => cb.value);
+                                    if (selectedIds.length === 0) {
+                                        Swal.fire({
+                                            icon: 'warning',
+                                            title: 'Aucune sélection',
+                                            text: 'Veuillez sélectionner au moins une image.',
+                                            confirmButtonText: 'OK'
+                                        });
+                                        return;
+                                    }
+                                    Swal.fire({
+                                        title: 'Confirmer la suppression',
+                                        text: `Voulez-vous supprimer ${selectedIds.length} image(s) ?`,
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonText: 'Oui, supprimer',
+                                        cancelButtonText: 'Annuler'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            fetch('{% url "delete_images" %}', {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    'X-CSRFToken': '{{ csrf_token }}'
+                                                },
+                                                body: JSON.stringify({ image_ids: selectedIds, user_id: userId })
+                                            })
+                                            .then(response => {
+                                                if (!response.ok) {
+                                                    throw new Error('Accès non autorisé ou erreur lors de la suppression.');
+                                                }
+                                                return response.json();
+                                            })
+                                            .then(data => {
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Succès',
+                                                    text: data.message,
+                                                    confirmButtonText: 'OK'
+                                                }).then(() => {
+                                                    if (data.status === 'success') {
+                                                        lightbox.close();
+                                                        location.reload();
+                                                    }
+                                                });
+                                            })
+                                            .catch(error => {
+                                                Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Erreur',
+                                                    text: 'Erreur : ' + error.message,
+                                                    confirmButtonText: 'OK'
+                                                });
+                                            });
+                                        }
+                                    });
+                                });
+                            }
+                        });
+                        lightbox.open();
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erreur',
+                            text: 'Erreur : ' + error.message,
+                            confirmButtonText: 'OK'
+                        });
+                    });
+            });
+        });
+    });
+</script>
 {% endblock %}

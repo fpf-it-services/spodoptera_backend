@@ -14,8 +14,15 @@
 </head>
 
 <body
-    x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
-    x-init=" darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    x-data="{ 
+        page: '{{ active_page|default:"dashboard" }}', 
+        loaded: true, 
+        darkMode: false, 
+        stickyMenu: false, 
+        sidebarToggle: false, 
+        scrollTop: false 
+    }"
+    x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'dark bg-gray-900': darkMode === true}">
     {% include 'includes/_preloader.html' %}
 
@@ -29,6 +36,25 @@
         </div>
     </div>
     <script defer src="{% static 'js/bundle.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const path = window.location.pathname;
+            const app = Alpine.store('app'); 
+            
+            if (path.includes('/dashboard')) {
+                app.page = 'dashboard';
+            } else if (path.includes('/get_users')) {
+                app.page = 'users';
+            } else if (path.includes('/zones-agro')) {
+                app.page = 'zones_agro';
+            } else if (path.includes('/measures')) {
+                app.page = 'measures';
+            } else if (path.includes('/profile')) {
+                app.page = 'profile';
+            }
+            // etc...
+        });
+</script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

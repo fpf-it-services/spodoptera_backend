@@ -8,25 +8,27 @@ from datetime import datetime, timedelta
 from django.contrib import messages
 from django.utils import timezone
 from recognition.models import UserProfile, Observation, ZoneAgro, CustomUser, CorrectiveMeasure
+from django.http import JsonResponse
+from django.core.exceptions import PermissionDenied
+import os
 
 @login_required(login_url='login')
 def measures_list(request):
-    measures = CorrectiveMeasure.objects.all().order_by('larval_stage')
+    measures = CorrectiveMeasure.objects.all().order_by('order')
     return render(request, 'pages/measures.html', {'measures': measures})
-
 
 def create_measure(request):
     if request.method == 'POST':
-        larval_stage = request.POST.get('larval_stage')
+        order = request.POST.get('order')
         measure = request.POST.get('measure')
         
-        if not larval_stage or not measure:
+        if not order or not measure:
             messages.error(request, 'Tous les champs sont obligatoires')
             return redirect('measures_list')
             
         try:
             CorrectiveMeasure.objects.create(
-                larval_stage=larval_stage,
+                order=order,
                 measure=measure
             )
             messages.success(request, 'Mesure corrective ajoutée avec succès')
@@ -35,7 +37,6 @@ def create_measure(request):
             
     return redirect('measures_list')
 
-
 def update_measure(request, measure_id):
     if request.method == 'POST':
         measure = CorrectiveMeasure.objects.filter(id=measure_id).first()
@@ -43,15 +44,15 @@ def update_measure(request, measure_id):
             messages.error(request, 'Mesure non trouvée')
             return redirect('measures_list')
             
-        larval_stage = request.POST.get('larval_stage')
+        order = request.POST.get('order')
         measure_text = request.POST.get('measure')
         
-        if not larval_stage or not measure_text:
+        if not order or not measure_text:
             messages.error(request, 'Tous les champs sont obligatoires')
             return redirect('measures_list')
             
         try:
-            measure.larval_stage = larval_stage
+            measure.order = order
             measure.measure = measure_text
             measure.save()
             messages.success(request, 'Mesure mise à jour avec succès')
@@ -78,7 +79,7 @@ def delete_measure(request, measure_id):
 @login_required(login_url='login')
 def zone_agro_list(request):
     zones = ZoneAgro.objects.all()
-    return render(request, 'pages/zones_agro.html', {'zones': zones})
+    return render(request, 'pages/zones_agro.html', {'zones': zones,'active_page': 'zones_agro',})
 
 def create_zone_agro(request):
     if request.method == 'POST':
@@ -101,20 +102,24 @@ def create_zone_agro(request):
     return render(request, 'pages/zones_agro.html')
 
 @login_required(login_url='login')
+@login_required(login_url='login')
 def index(request):
     total_users = UserProfile.objects.filter(is_admin=False).count()
-
     total_tests = Observation.objects.count()
 
     successful_tests = Observation.objects.filter(success=True).count()
     success_percentage = (successful_tests / total_tests * 100) if total_tests > 0 else 0
     failed_percentage = (100 - success_percentage) if total_tests > 0 else 0
 
+    successful_tests_user = Observation.objects.filter(success_according_user=True).count()
+    success_according_user_percentage = (successful_tests_user / total_tests * 100) if total_tests > 0 else 0
+    failed_according_user_percentage = (100 - success_according_user_percentage) if total_tests > 0 else 0
+
     tests_by_zone = Observation.objects.values('zone_agro__name').annotate(
         test_count=Count('id')
     ).order_by('zone_agro__name')
 
-    total_tests = max(total_tests, 1) 
+    total_tests = max(total_tests, 1)
     tests_by_zone = [
         {
             'zone': item['zone_agro__name'] or 'Sans zone',
@@ -188,11 +193,14 @@ def index(request):
         'total_tests': total_tests,
         'success_percentage': round(success_percentage, 2),
         'failed_percentage': round(failed_percentage, 2),
+        'success_according_user_percentage': round(success_according_user_percentage, 2),
+        'failed_according_user_percentage': round(failed_according_user_percentage, 2),
         'users_by_zone': users_by_zone,
         'tests_by_zone': tests_by_zone,
         'tests_by_day': tests_by_day_data,
         'tests_by_month': tests_by_month_data,
         'growth_percentage': round(growth_percentage, 2),
+        'active_page': 'dashboard',
     }
 
     return render(request, 'pages/dashboard.html', context)
@@ -205,9 +213,49 @@ def get_users(request):
 
     context = {
         'users': users,
+        'active_page': 'users',
     }
 
     return render(request, 'pages/users.html', context)
+
+
+@login_required(login_url='login')
+def get_user_images(request, user_id):
+    observations = Observation.objects.filter(user_profile__user__id=user_id, image__isnull=False)
+    images = [
+        {
+            'id': obs.id,
+            'url': obs.image.url,
+            'larval_stage': obs.larval_stage
+        }
+        for obs in observations
+    ]
+    return JsonResponse({'images': images})
+
+@login_required(login_url='login')
+def delete_images(request):
+    if request.method == 'POST':
+        image_ids = request.POST.getlist('image_ids')
+        user_id = request.POST.get('user_id')
+        
+        deleted_count = 0
+        for image_id in image_ids:
+            try:
+                observation = Observation.objects.get(id=image_id, user_profile__user__id=user_id)
+                if observation.image:
+                    if os.path.isfile(observation.image.path):
+                        os.remove(observation.image.path)
+                observation.image = None
+                observation.save()
+                deleted_count += 1
+            except Observation.DoesNotExist:
+                continue
+
+        return JsonResponse({
+            'status': 'success',
+            'message': f'{deleted_count} image(s) supprimée(s) avec succès.'
+        })
+    return JsonResponse({'status': 'error', 'message': 'Méthode non autorisée.'}, status=405)
 
 
 def login_view(request):
@@ -220,7 +268,7 @@ def login_view(request):
             return redirect('dashboard')
         else:
             messages.error(request, 'Nom d\'utilisateur ou mot de passe incorrect')
-            return render(request, 'login.html')
+            return render(request, 'pages/login.html')
     return render(request, 'pages/login.html')
 
 
@@ -231,3 +279,36 @@ def logout_view(request):
     return redirect('login')
 
 
+@login_required
+def profile_view(request):
+    total_users = CustomUser.objects.count()
+    total_observations = Observation.objects.count()
+    total_zones = ZoneAgro.objects.count()
+    total_measures = CorrectiveMeasure.objects.count()
+    
+    return render(request, 'pages/profile.html', {
+        'total_users': total_users,
+        'total_observations': total_observations,
+        'total_zones': total_zones,
+        'total_measures': total_measures,
+        'active_page': 'profile',
+    })
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        user = request.user
+        user.first_name = request.POST.get('first_name', user.first_name)
+        user.userprofile.last_name = request.POST.get('last_name', user.last_name)
+        user.email = request.POST.get('email', user.email)
+        user.save()
+        
+        profile = user.userprofile
+        if 'profile_picture' in request.FILES:
+            profile.profile_picture = request.FILES['profile_picture']
+        profile.save()
+        
+        messages.success(request, 'Profil mis à jour avec succès')
+        return redirect('profile')
+    
+    return redirect('profile')

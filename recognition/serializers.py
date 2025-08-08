@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Observation, UserProfile
 from django.contrib.auth import get_user_model
-from django.db import IntegrityError
 from rest_framework.exceptions import ValidationError
 
 User = get_user_model()
@@ -12,7 +11,6 @@ class ObservationSerializer(serializers.ModelSerializer):
         fields = ['image', 'latitude', 'longitude']
 
         
-
 class UserRegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=False, allow_blank=True)
     last_name = serializers.CharField(max_length=100)

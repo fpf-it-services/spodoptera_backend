@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PredictLarvalStage, RegisterAPIView, LoginAPIView, UpdateTestSuccessView
+from .views import PredictLarvalStage, RegisterAPIView, UpdateTestSuccessView, AdminRegisterAPIView
 
 urlpatterns = [
     path('predict/', PredictLarvalStage.as_view(), name='predict_larval_stage'),
