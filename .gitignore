@@ -1,0 +1,44 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*$py.class
+
+# --- Django ---
+*.log
+*.pot
+*.py,cover
+db.sqlite3
+media/
+.env
+.env.*
+.env.local
+build.py
+
+
+# --- Environnements virtuels ---
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+
+# --- Cache ---
+.cache/
+*.tmp
+*.swp
+*.swo
+
+# --- IDE & éditeurs ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
