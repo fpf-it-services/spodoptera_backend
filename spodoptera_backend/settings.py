@@ -14,8 +14,9 @@ from pathlib import Path
 import os
 import socket
 from spodoptera_backend.environ import env, BASE_DIR
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,16 +28,31 @@ SECRET_KEY = "django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]","spodoptera-backend.onrender.com", "spodoptera-backend.pythonanywhere.com"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "[::1]",
+    "spodoptera-backend.onrender.com",
+    "p01--spodoptera-backend--g8549jdrj8hj.code.run",
+]
 
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_HEADERS = [
-    'content-type',
-    'x-requested-with',
+    "content-type",
+    "x-requested-with",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://p01--spodoptera-backend--g8549jdrj8hj.code.run",
+    "http://localhost",
+]
+
+CSRF_COOKIE_SAMESITE = "Lax"
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = "Lax"
+SESSION_COOKIE_SECURE = True
 
 
 # Application definition
@@ -48,6 +64,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
     "recognition",
@@ -55,7 +72,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -82,6 +101,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "spodoptera_backend.wsgi.application"
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -97,7 +117,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'recognition.CustomUser'
+AUTH_USER_MODEL = "recognition.CustomUser"
 
 
 # Password validation

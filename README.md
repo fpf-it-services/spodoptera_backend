@@ -1,143 +1,185 @@
-# Spodoptera Detection App
+# Spodoptera Detection App - Documentation mise à jour
 
 ## Description
-Spodoptera Detection App est une application web développée avec Django et l'API REST Framework pour détecter la présence de *Spodoptera frugiperda* (une espèce de ravageur agricole) dans des images. Utilisant un modèle YOLO (You Only Look Once) entraîné, l'application analyse les images téléchargées et retourne une réponse indiquant si le ravageur est détecté ou non. En cas de détection, des mesures correctives sont fournies pour aider à gérer l'infestation.
+L'application Spodoptera Detection est une solution web basée sur Django et Django REST Framework pour détecter la présence du ravageur agricole *Spodoptera frugiperda* dans les images. Elle combine un modèle YOLO optimisé avec une interface API simple et une gestion utilisateur complète.
 
-Cette application est conçue pour les agriculteurs et les experts agricoles, offrant une solution simple pour surveiller les cultures et prendre des décisions éclairées.
+## Nouveautés et améliorations
+- Système d'authentification et de gestion des utilisateurs
+- Géolocalisation des observations
+- Historique des détections
+- Validation manuelle des résultats
+- Interface administrateur
 
-## Fonctionnalités
-- **Détection de *Spodoptera frugiperda*** : Analyse des images pour confirmer la présence du ravageur.
-- **Mesures correctives** : Fournit des recommandations personnalisées lorsqu'une détection est confirmée.
-- **API REST** : Permet l'envoi d'images via une requête POST et retourne des données JSON.
-- **Interface légère** : Fonctionne avec un modèle YOLO pré-entraîné et un prétraitement minimal.
+## Fonctionnalités principales
 
-## Prérequis
-- **Python 3.13** ou version supérieure.
-- **Django** : Framework web pour le backend.
-- **djangorestframework** : Pour l'API REST.
-- **ultralytics** : Pour utiliser le modèle YOLO.
-- **OpenCV (cv2)** : Pour le prétraitement des images.
-- **NumPy** : Pour manipuler les tableaux d'images.
+### Pour les utilisateurs
+- **Détection de Spodoptera** via upload d'images
+- **Géolocalisation** automatique des observations
+- **Historique** des analyses
+- **Validation manuelle** des résultats
+- **Recommandations** personnalisées
+
+### Pour les administrateurs
+- **Tableau de bord** des détections
+- **Gestion** des utilisateurs
+- **Édition** des mesures correctives
+- **Statistiques** d'utilisation
 
 ## Installation
 
-### 1. Cloner le dépôt
+### Prérequis
+- Python 3.10+
+- PostgreSQL (recommandé) ou SQLite
+- Git
+
+### Configuration initiale
+
 ```bash
+# Cloner le dépôt
 git clone https://github.com/fpf-it-services/spodoptera_backend.git
 cd spodoptera_backend
-```
 
-### 2. Créer un environnement virtuel
-```bash
-python -m venv env
-source env/bin/activate  # Sur Linux/Mac
-env\Scripts\activate     # Sur Windows
-```
+# Créer l'environnement virtuel
+python -m venv venv
+source venv/bin/activate  
+venv\Scripts\activate    
 
-### 3. Installer les dépendances
-Crée un fichier `requirements.txt` avec :
-```
-django>=4.2
-djangorestframework>=3.14
-ultralytics>=8.0
-opencv-python>=4.5
-numpy>=1.21
-```
-Puis installe-les :
-```bash
+# Installer les dépendances
 pip install -r requirements.txt
 ```
 
-### 4. Configurer le projet
-- Copie le fichier `.env.example` (si présent) en `.env` et ajuste les variables si nécessaire.
-- Place le modèle YOLO (`spodoptera.pt`) dans le dossier `spodoptera_backend/models/`.
+### Configuration de la base de données
+1. Créer un fichier `.env` à la racine:
+```ini
+DATABASE_URL=postgres://user:password@localhost/spodoptera
+SECRET_KEY=votre_secret_key_ici
+DEBUG=True
+```
 
-### 5. Appliquer les migrations
+2. Appliquer les migrations:
 ```bash
-python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 6. Lancer le serveur
+### Chargement des données initiales
 ```bash
-python manage.py runserver
+python manage.py loaddata initial_measures.json
 ```
 
-L'application sera accessible à l'adresse `http://127.0.0.1:8000/`.
+## API Endpoints
 
-## Utilisation
+### Authentification
+- `POST /api/register/` - Enregistrement utilisateur
+- `POST /api/register-admin/` - Enregistrement administrateur
 
-### Endpoint API
-- **URL** : `/api/predict/`
-- **Méthode** : `POST`
-- **Corps de la requête** :
-  - `image` : Fichier image (format JPEG recommandé, taille originale 2848x2848 pixels recommandée).
-- **Exemple de requête avec cURL** :
-  ```bash
-  curl -X POST -F "image=@/chemin/vers/votre/image.jpg" http://127.0.0.1:8000/api/predict/
-  ```
+### Détection
+- `POST /api/predict/` - Soumettre une image pour analyse
 
-### Réponse JSON
-- **Succès (201 Created)** :
-  ```json
-  {
-      "observation": {
-          "id": 1,
-          "image": "/media/images/test_image.jpg",
-          "larval_stage": "Spodoptera détecté",
-          "created_at": "2025-07-05T16:30:00Z"
-      },
-      "confidence": 0.85,
-      "success": true,
-      "corrective_measures": [
-          "Surveiller régulièrement et retirer manuellement les larves si possible. Appliquer un insecticide biologique en cas d'infestation légère. Consulter un expert pour une intervention ciblée."
-      ]
-  }
-  ```
-- **Échec (aucune détection)** :
-  ```json
-  {
-      "observation": {
-          "id": 1,
-          "image": "/media/images/test_image.jpg",
-          "larval_stage": "Aucun Spodoptera détecté",
-          "created_at": "2025-07-05T16:30:00Z"
-      },
-      "confidence": null,
-      "success": false,
-      "corrective_measures": []
-  }
-  ```
+### Gestion
+- `POST /api/update-test-success/` - Valider/invalider une détection
 
-### Spécifications des images
-- **Format** : JPEG.
-- **Taille recommandée** : 2848x2848 pixels (redimensionnée à 640x640 pour le traitement).
-- **Conditions** : Fond blanc en contre-jour pour une détection optimale.
+## Modèles de données
 
-## Configuration du modèle
-- Le modèle YOLO (`yolov8_spodoptera.pt`) doit être placé dans `spodoptera_backend/models/`.
-- Assurez-vous que le modèle est entraîné pour détecter la classe `1` correspondant à *Spodoptera frugiperda*.
+### UserProfile
+- `user` - Lien vers l'utilisateur Django
+- `last_name` - Nom de famille
+- `is_admin` - Statut administrateur
 
-## Ajout de mesures correctives
-1. Créez des entrées dans la base de données via l'interface d'administration Django ou un script.
-2. Exemple de script (`add_measures.py`) :
-   ```python
-   from django.core.management.base import BaseCommand
-   from recognition.models import CorrectiveMeasure
+### Observation
+- `user_profile` - Utilisateur associé
+- `image` - Image analysée
+- `larval_stage` - Résultat de la détection
+- `latitude/longitude` - Coordonnées GPS
+- `zone_agro` - Zone agroécologique calculée
+- `success` - Détection automatique
+- `success_according_user` - Validation manuelle
 
-   class Command(BaseCommand):
-       help = 'Ajoute des mesures correctives pour Spodoptera frugiperda'
+### CorrectiveMeasure
+- `larval_stage` - Stade larvaire cible
+- `measure` - Texte de la mesure
+- `order` - Ordre d'affichage
 
-       def handle(self, *args, **options):
-           measures = [
-               ("Spodoptera détecté", "Surveiller régulièrement et retirer manuellement les larves si possible. Appliquer un insecticide biologique en cas d'infestation légère. Consulter un expert pour une intervention ciblée."),
-           ]
-           for stage, measure in measures:
-               CorrectiveMeasure.objects.get_or_create(larval_stage=stage, measure=measure)
-           self.stdout.write(self.style.SUCCESS('Mesures ajoutées avec succès'))
+## Exemples de requêtes
 
-   ```
-   Exécutez-le avec :
-   ```bash
-   python manage.py add_measures
-   ```
+### Enregistrement utilisateur
+```bash
+curl -X POST http://localhost:8000/api/register/ \
+  -H "Content-Type: application/json" \
+  -d '{"first_name":"Jean", "last_name":"Dupont"}'
+```
+
+### Soumission d'une image
+```bash
+curl -X POST http://localhost:8000/api/predict/ \
+  -F "user_id=1" \
+  -F "image=@/chemin/vers/image.jpg" \
+  -F "latitude=12.34" \
+  -F "longitude=56.78"
+```
+
+### Validation manuelle
+```bash
+curl -X POST http://localhost:8000/api/update-test-success/ \
+  -H "Content-Type: application/json" \
+  -d '{"user_id":1, "observation_id":5, "success_according_user":true}'
+```
+
+## Réponses API
+
+### Réponse réussie (détection)
+```json
+{
+  "success": true,
+  "test_id": 42,
+  "corrective_measures": [
+    "Appliquez un traitement biologique dans les 48h"
+  ],
+  "confidence": 0.92
+}
+```
+
+### Réponse sans détection
+```json
+{
+  "success": false,
+  "test_id": 43,
+  "corrective_measures": [],
+  "confidence": null
+}
+```
+
+## Gestion administrative
+
+### Accès à l'interface admin
+1. Créer un superutilisateur:
+```bash
+python manage.py createsuperuser
+```
+
+
+
+```
+
+2. Configurer un serveur WSGI (ex: Gunicorn + Nginx)
+
+### Variables d'environnement critiques
+- `DATABASE_URL` - URL de connexion à la base
+- `SECRET_KEY` - Clé secrète Django
+- `YOLO_MODEL_PATH` - Chemin vers le modèle YOLO
+- `FASTAPI_URL` - URL du service de détection
+
+## Maintenance
+
+### Sauvegardes
+```bash
+python manage.py dumpdata --indent=2 > backup.json
+```
+
+### Mises à jour
+```bash
+git pull origin main
+pip install -r requirements.txt
+python manage.py migrate
+```
+
+

@@ -48,6 +48,22 @@
         "documentation": {}
     },
     {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
         "label": "authenticate",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -638,7 +654,7 @@
         "kind": 5,
         "importPath": "recognition.admin.urls",
         "description": "recognition.admin.urls",
-        "peekOfCode": "urlpatterns = [\n    path('dashboard/', views.index, name='dashboard'),\n    path('', views.index, name='dashboard'),\n    path('get_users/', views.get_users, name='get_users'),    \n    path('get_user_images/<int:user_id>/', views.get_user_images, name='get_user_images'),\n    path('delete_images/', views.delete_images, name='delete_images'),                                                                                                                                                                                                                                                                                                                                                                                      \n    path('zones-agro/', views.zone_agro_list, name='zones_agro_list'),\n    path('zones-agro/create/', views.create_zone_agro, name='create_zone_agro'),\n    path('measures/', views.measures_list, name='measures_list'),\n    path('measures/create/', views.create_measure, name='create_measure'),",
+        "peekOfCode": "urlpatterns = [\n    path(\"dashboard/\", views.index, name=\"dashboard\"),\n    path(\"\", views.index, name=\"dashboard\"),\n    path(\"get_users/\", views.get_users, name=\"get_users\"),\n    path(\n        \"get_user_images/<int:user_id>/\", views.get_user_images, name=\"get_user_images\"\n    ),\n    path(\"delete_images/\", views.delete_images, name=\"delete_images\"),\n    path(\"zones-agro/\", views.zone_agro_list, name=\"zones_agro_list\"),\n    path(\"zones-agro/create/\", views.create_zone_agro, name=\"create_zone_agro\"),",
         "detail": "recognition.admin.urls",
         "documentation": {}
     },
@@ -647,7 +663,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def measures_list(request):\n    measures = CorrectiveMeasure.objects.all().order_by('order')\n    return render(request, 'pages/measures.html', {'measures': measures})\ndef create_measure(request):\n    if request.method == 'POST':\n        order = request.POST.get('order')\n        measure = request.POST.get('measure')\n        if not order or not measure:\n            messages.error(request, 'Tous les champs sont obligatoires')\n            return redirect('measures_list')",
+        "peekOfCode": "def measures_list(request):\n    measures = CorrectiveMeasure.objects.all().order_by(\"order\")\n    return render(request, \"pages/measures.html\", {\"measures\": measures})\ndef create_measure(request):\n    if request.method == \"POST\":\n        order = request.POST.get(\"order\")\n        measure = request.POST.get(\"measure\")\n        if not order or not measure:\n            messages.error(request, \"Tous les champs sont obligatoires\")\n            return redirect(\"measures_list\")",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -656,7 +672,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def create_measure(request):\n    if request.method == 'POST':\n        order = request.POST.get('order')\n        measure = request.POST.get('measure')\n        if not order or not measure:\n            messages.error(request, 'Tous les champs sont obligatoires')\n            return redirect('measures_list')\n        try:\n            CorrectiveMeasure.objects.create(\n                order=order,",
+        "peekOfCode": "def create_measure(request):\n    if request.method == \"POST\":\n        order = request.POST.get(\"order\")\n        measure = request.POST.get(\"measure\")\n        if not order or not measure:\n            messages.error(request, \"Tous les champs sont obligatoires\")\n            return redirect(\"measures_list\")\n        try:\n            CorrectiveMeasure.objects.create(order=order, measure=measure)\n            messages.success(request, \"Mesure corrective ajoutée avec succès\")",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -665,7 +681,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def update_measure(request, measure_id):\n    if request.method == 'POST':\n        measure = CorrectiveMeasure.objects.filter(id=measure_id).first()\n        if not measure:\n            messages.error(request, 'Mesure non trouvée')\n            return redirect('measures_list')\n        order = request.POST.get('order')\n        measure_text = request.POST.get('measure')\n        if not order or not measure_text:\n            messages.error(request, 'Tous les champs sont obligatoires')",
+        "peekOfCode": "def update_measure(request, measure_id):\n    if request.method == \"POST\":\n        measure = CorrectiveMeasure.objects.filter(id=measure_id).first()\n        if not measure:\n            messages.error(request, \"Mesure non trouvée\")\n            return redirect(\"measures_list\")\n        order = request.POST.get(\"order\")\n        measure_text = request.POST.get(\"measure\")\n        if not order or not measure_text:\n            messages.error(request, \"Tous les champs sont obligatoires\")",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -674,7 +690,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def delete_measure(request, measure_id):\n    if request.method == 'POST':\n        measure = CorrectiveMeasure.objects.filter(id=measure_id).first()\n        if not measure:\n            messages.error(request, 'Mesure non trouvée')\n            return redirect('measures_list')\n        try:\n            measure.delete()\n            messages.success(request, 'Mesure supprimée avec succès')\n        except Exception as e:",
+        "peekOfCode": "def delete_measure(request, measure_id):\n    if request.method == \"POST\":\n        measure = CorrectiveMeasure.objects.filter(id=measure_id).first()\n        if not measure:\n            messages.error(request, \"Mesure non trouvée\")\n            return redirect(\"measures_list\")\n        try:\n            measure.delete()\n            messages.success(request, \"Mesure supprimée avec succès\")\n        except Exception as e:",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -683,7 +699,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def zone_agro_list(request):\n    zones = ZoneAgro.objects.all()\n    return render(request, 'pages/zones_agro.html', {'zones': zones,'active_page': 'zones_agro',})\ndef create_zone_agro(request):\n    if request.method == 'POST':\n        name = request.POST.get('name')\n        latitude = request.POST.get('latitude')\n        longitude = request.POST.get('longitude')\n        rayon = request.POST.get('rayon')\n        try:",
+        "peekOfCode": "def zone_agro_list(request):\n    zones = ZoneAgro.objects.all()\n    return render(\n        request,\n        \"pages/zones_agro.html\",\n        {\n            \"zones\": zones,\n            \"active_page\": \"zones_agro\",\n        },\n    )",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -692,7 +708,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def create_zone_agro(request):\n    if request.method == 'POST':\n        name = request.POST.get('name')\n        latitude = request.POST.get('latitude')\n        longitude = request.POST.get('longitude')\n        rayon = request.POST.get('rayon')\n        try:\n            ZoneAgro.objects.create(\n                name=name,\n                latitude=float(latitude),",
+        "peekOfCode": "def create_zone_agro(request):\n    if request.method == \"POST\":\n        name = request.POST.get(\"name\")\n        latitude = request.POST.get(\"latitude\")\n        longitude = request.POST.get(\"longitude\")\n        rayon = request.POST.get(\"rayon\")\n        try:\n            ZoneAgro.objects.create(\n                name=name,\n                latitude=float(latitude),",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -701,7 +717,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def index(request):\n    total_users = UserProfile.objects.filter(is_admin=False).count()\n    total_tests = Observation.objects.count()\n    successful_tests = Observation.objects.filter(success=True).count()\n    success_percentage = (successful_tests / total_tests * 100) if total_tests > 0 else 0\n    failed_percentage = (100 - success_percentage) if total_tests > 0 else 0\n    successful_tests_user = Observation.objects.filter(success_according_user=True).count()\n    success_according_user_percentage = (successful_tests_user / total_tests * 100) if total_tests > 0 else 0\n    failed_according_user_percentage = (100 - success_according_user_percentage) if total_tests > 0 else 0\n    tests_by_zone = Observation.objects.values('zone_agro__name').annotate(",
+        "peekOfCode": "def index(request):\n    total_users = UserProfile.objects.filter(is_admin=False).count()\n    total_tests = Observation.objects.count()\n    successful_tests = Observation.objects.filter(success=True).count()\n    success_percentage = (\n        (successful_tests / total_tests * 100) if total_tests > 0 else 0\n    )\n    failed_percentage = (100 - success_percentage) if total_tests > 0 else 0\n    successful_tests_user = Observation.objects.filter(\n        success_according_user=True",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -710,7 +726,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def get_users(request):\n    users = CustomUser.objects.annotate(\n        test_count=Count('userprofile__observation')\n    ).select_related('userprofile').all()\n    context = {\n        'users': users,\n        'active_page': 'users',\n    }\n    return render(request, 'pages/users.html', context)\n@login_required(login_url='login')",
+        "peekOfCode": "def get_users(request):\n    users = (\n        CustomUser.objects.annotate(test_count=Count(\"userprofile__observation\"))\n        .select_related(\"userprofile\")\n        .all()\n    )\n    context = {\n        \"users\": users,\n        \"active_page\": \"users\",\n    }",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -719,7 +735,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def get_user_images(request, user_id):\n    observations = Observation.objects.filter(user_profile__user__id=user_id, image__isnull=False)\n    images = [\n        {\n            'id': obs.id,\n            'url': obs.image.url,\n            'larval_stage': obs.larval_stage\n        }\n        for obs in observations\n    ]",
+        "peekOfCode": "def get_user_images(request, user_id):\n    observations = Observation.objects.filter(\n        user_profile__user__id=user_id, image__isnull=False\n    )\n    images = [\n        {\"id\": obs.id, \"url\": obs.image.url, \"larval_stage\": obs.larval_stage}\n        for obs in observations\n    ]\n    return JsonResponse({\"images\": images})\n@login_required(login_url=\"login\")",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -728,7 +744,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def delete_images(request):\n    if request.method == 'POST':\n        image_ids = request.POST.getlist('image_ids')\n        user_id = request.POST.get('user_id')\n        deleted_count = 0\n        for image_id in image_ids:\n            try:\n                observation = Observation.objects.get(id=image_id, user_profile__user__id=user_id)\n                if observation.image:\n                    if os.path.isfile(observation.image.path):",
+        "peekOfCode": "def delete_images(request):\n    if request.method == \"POST\":\n        image_ids = request.POST.getlist(\"image_ids\")\n        user_id = request.POST.get(\"user_id\")\n        deleted_count = 0\n        for image_id in image_ids:\n            try:\n                observation = Observation.objects.get(\n                    id=image_id, user_profile__user__id=user_id\n                )",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -737,7 +753,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def login_view(request):\n    if request.method == 'POST':\n        username = request.POST.get('username')\n        password = request.POST.get('password')\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)\n            return redirect('dashboard')\n        else:\n            messages.error(request, 'Nom d\\'utilisateur ou mot de passe incorrect')",
+        "peekOfCode": "def login_view(request):\n    if request.method == \"POST\":\n        username = request.POST.get(\"username\")\n        password = request.POST.get(\"password\")\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)\n            return redirect(\"dashboard\")\n        else:\n            messages.error(request, \"Nom d'utilisateur ou mot de passe incorrect\")",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -746,7 +762,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def logout_view(request):\n    if request.user.is_authenticated:\n        logout(request)\n        messages.success(request, 'Vous avez été déconnecté avec succès.')\n    return redirect('login')\n@login_required\ndef profile_view(request):\n    total_users = CustomUser.objects.count()\n    total_observations = Observation.objects.count()\n    total_zones = ZoneAgro.objects.count()",
+        "peekOfCode": "def logout_view(request):\n    if request.user.is_authenticated:\n        logout(request)\n        messages.success(request, \"Vous avez été déconnecté avec succès.\")\n    return redirect(\"login\")\n@login_required\ndef profile_view(request):\n    total_users = CustomUser.objects.count()\n    total_observations = Observation.objects.count()\n    total_zones = ZoneAgro.objects.count()",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -755,7 +771,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def profile_view(request):\n    total_users = CustomUser.objects.count()\n    total_observations = Observation.objects.count()\n    total_zones = ZoneAgro.objects.count()\n    total_measures = CorrectiveMeasure.objects.count()\n    return render(request, 'pages/profile.html', {\n        'total_users': total_users,\n        'total_observations': total_observations,\n        'total_zones': total_zones,\n        'total_measures': total_measures,",
+        "peekOfCode": "def profile_view(request):\n    total_users = CustomUser.objects.count()\n    total_observations = Observation.objects.count()\n    total_zones = ZoneAgro.objects.count()\n    total_measures = CorrectiveMeasure.objects.count()\n    return render(\n        request,\n        \"pages/profile.html\",\n        {\n            \"total_users\": total_users,",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -764,7 +780,7 @@
         "kind": 2,
         "importPath": "recognition.admin.views",
         "description": "recognition.admin.views",
-        "peekOfCode": "def update_profile(request):\n    if request.method == 'POST':\n        user = request.user\n        user.first_name = request.POST.get('first_name', user.first_name)\n        user.userprofile.last_name = request.POST.get('last_name', user.last_name)\n        user.email = request.POST.get('email', user.email)\n        user.save()\n        profile = user.userprofile\n        if 'profile_picture' in request.FILES:\n            profile.profile_picture = request.FILES['profile_picture']",
+        "peekOfCode": "def update_profile(request):\n    if request.method == \"POST\":\n        user = request.user\n        user.first_name = request.POST.get(\"first_name\", user.first_name)\n        user.userprofile.last_name = request.POST.get(\"last_name\", user.last_name)\n        user.email = request.POST.get(\"email\", user.email)\n        user.save()\n        profile = user.userprofile\n        if \"profile_picture\" in request.FILES:\n            profile.profile_picture = request.FILES[\"profile_picture\"]",
         "detail": "recognition.admin.views",
         "documentation": {}
     },
@@ -773,7 +789,7 @@
         "kind": 6,
         "importPath": "recognition.management.commands.add_measure",
         "description": "recognition.management.commands.add_measure",
-        "peekOfCode": "class Command(BaseCommand):\n    help = 'Ajoute des mesures correctives pour Spodoptera frugiperda'\n    def handle(self, *args, **options):\n        measures = [\n            (\"Spodoptera détecté\", \"Surveiller régulièrement et retirer manuellement les larves si possible. Appliquer un insecticide biologique en cas d'infestation légère. Consulter un expert pour une intervention ciblée.\"),\n        ]\n        for stage, measure in measures:\n            CorrectiveMeasure.objects.get_or_create(larval_stage=stage, measure=measure)\n        self.stdout.write(self.style.SUCCESS('Mesures ajoutées avec succès'))",
+        "peekOfCode": "class Command(BaseCommand):\n    help = \"Ajoute des mesures correctives pour Spodoptera frugiperda\"\n    def handle(self, *args, **options):\n        measures = [\n            (\n                \"Spodoptera détecté\",\n                \"Surveiller régulièrement et retirer manuellement les larves si possible. Appliquer un insecticide biologique en cas d'infestation légère. Consulter un expert pour une intervention ciblée.\",\n            ),\n        ]\n        for stage, measure in measures:",
         "detail": "recognition.management.commands.add_measure",
         "documentation": {}
     },
@@ -782,7 +798,7 @@
         "kind": 6,
         "importPath": "recognition.management.commands.create_default_users",
         "description": "recognition.management.commands.create_default_users",
-        "peekOfCode": "class Command(BaseCommand):\n    help = 'Creates two default users with their profiles'\n    def handle(self, *args, **kwargs):\n        if not User.objects.filter(username='johndoe@example.com').exists():\n            user1 = User.objects.create_user(\n                username='johndoe@example.com',\n                email='johndoe@example.com',\n                password='password123'\n            )\n            UserProfile.objects.create(",
+        "peekOfCode": "class Command(BaseCommand):\n    help = \"Creates two default users with their profiles\"\n    def handle(self, *args, **kwargs):\n        if not User.objects.filter(username=\"johndoe@example.com\").exists():\n            user1 = User.objects.create_user(\n                username=\"johndoe@example.com\",\n                email=\"johndoe@example.com\",\n                password=\"password123\",\n            )\n            UserProfile.objects.create(",
         "detail": "recognition.management.commands.create_default_users",
         "documentation": {}
     },
@@ -872,7 +888,7 @@
         "kind": 6,
         "importPath": "recognition.models",
         "description": "recognition.models",
-        "peekOfCode": "class ZoneAgro(models.Model):\n    name = models.CharField(max_length=100, unique=True)\n    description = models.TextField(blank=True, null=True)\n    latitude = models.FloatField()\n    longitude = models.FloatField()\n    rayon = models.FloatField(help_text=\"Rayon en mètres autour du point central\") \n    def __str__(self):\n        return self.name\nclass CustomUser(AbstractUser):\n    email = models.EmailField(unique=True)",
+        "peekOfCode": "class ZoneAgro(models.Model):\n    name = models.CharField(max_length=100, unique=True)\n    description = models.TextField(blank=True, null=True)\n    latitude = models.FloatField()\n    longitude = models.FloatField()\n    rayon = models.FloatField(help_text=\"Rayon en mètres autour du point central\")\n    def __str__(self):\n        return self.name\nclass CustomUser(AbstractUser):\n    email = models.EmailField(unique=True)",
         "detail": "recognition.models",
         "documentation": {}
     },
@@ -881,7 +897,7 @@
         "kind": 6,
         "importPath": "recognition.models",
         "description": "recognition.models",
-        "peekOfCode": "class CustomUser(AbstractUser):\n    email = models.EmailField(unique=True)\n    first_name = models.CharField(max_length=100, unique=True) \n    USERNAME_FIELD = 'email'\n    REQUIRED_FIELDS = ['username'] \nclass UserProfile(models.Model):\n    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  \n    last_name = models.CharField(max_length=100)\n    profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)\n    is_admin = models.BooleanField(default=False, help_text=\"Indique si l'utilisateur est un administrateur\")",
+        "peekOfCode": "class CustomUser(AbstractUser):\n    email = models.EmailField(unique=True)\n    first_name = models.CharField(max_length=100, unique=True)\n    USERNAME_FIELD = \"email\"\n    REQUIRED_FIELDS = [\"username\"]\nclass UserProfile(models.Model):\n    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)\n    last_name = models.CharField(max_length=100)\n    profile_picture = models.ImageField(\n        upload_to=\"profile_pics/\", null=True, blank=True",
         "detail": "recognition.models",
         "documentation": {}
     },
@@ -890,7 +906,7 @@
         "kind": 6,
         "importPath": "recognition.models",
         "description": "recognition.models",
-        "peekOfCode": "class UserProfile(models.Model):\n    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)  \n    last_name = models.CharField(max_length=100)\n    profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)\n    is_admin = models.BooleanField(default=False, help_text=\"Indique si l'utilisateur est un administrateur\")\n    created_at = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return f\"{self.user.first_name} {self.last_name}\"\nclass Observation(models.Model):\n    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)",
+        "peekOfCode": "class UserProfile(models.Model):\n    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)\n    last_name = models.CharField(max_length=100)\n    profile_picture = models.ImageField(\n        upload_to=\"profile_pics/\", null=True, blank=True\n    )\n    is_admin = models.BooleanField(\n        default=False, help_text=\"Indique si l'utilisateur est un administrateur\"\n    )\n    created_at = models.DateTimeField(auto_now_add=True)",
         "detail": "recognition.models",
         "documentation": {}
     },
@@ -899,7 +915,7 @@
         "kind": 6,
         "importPath": "recognition.models",
         "description": "recognition.models",
-        "peekOfCode": "class Observation(models.Model):\n    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)\n    image = models.ImageField(upload_to=user_directory_path)\n    larval_stage = models.CharField(max_length=100)\n    confidence = models.FloatField(null=True, blank=True)\n    zone_agro = models.ForeignKey(ZoneAgro, on_delete=models.SET_NULL, null=True, blank=True)\n    latitude = models.FloatField(null=True, blank=True)\n    longitude = models.FloatField(null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    success = models.BooleanField(default=False)",
+        "peekOfCode": "class Observation(models.Model):\n    user_profile = models.ForeignKey(\n        UserProfile, on_delete=models.CASCADE, null=True, blank=True\n    )\n    image = models.ImageField(upload_to=user_directory_path)\n    larval_stage = models.CharField(max_length=100)\n    confidence = models.FloatField(null=True, blank=True)\n    zone_agro = models.ForeignKey(\n        ZoneAgro, on_delete=models.SET_NULL, null=True, blank=True\n    )",
         "detail": "recognition.models",
         "documentation": {}
     },
@@ -908,7 +924,7 @@
         "kind": 6,
         "importPath": "recognition.models",
         "description": "recognition.models",
-        "peekOfCode": "class CorrectiveMeasure(models.Model):\n    \"\"\"\n    Modèle pour stocker les mesures correctives pour Spodoptera frugiperda\n    \"\"\"\n    order = models.PositiveIntegerField(null=True, blank=True, help_text=\"Ordre d'affichage des mesures\")\n    measure = models.TextField(help_text=\"Mesure corrective ou conseil à suivre\")\n    def __str__(self):\n        return f\"Measure for {self.order}\"",
+        "peekOfCode": "class CorrectiveMeasure(models.Model):\n    \"\"\"\n    Modèle pour stocker les mesures correctives pour Spodoptera frugiperda\n    \"\"\"\n    order = models.PositiveIntegerField(\n        null=True, blank=True, help_text=\"Ordre d'affichage des mesures\"\n    )\n    measure = models.TextField(help_text=\"Mesure corrective ou conseil à suivre\")\n    def __str__(self):\n        return f\"Measure for {self.order}\"",
         "detail": "recognition.models",
         "documentation": {}
     },
@@ -917,7 +933,7 @@
         "kind": 2,
         "importPath": "recognition.models",
         "description": "recognition.models",
-        "peekOfCode": "def user_directory_path(instance, filename):\n    return f'images/user_{instance.user_profile.user.id}/{filename}'\nclass ZoneAgro(models.Model):\n    name = models.CharField(max_length=100, unique=True)\n    description = models.TextField(blank=True, null=True)\n    latitude = models.FloatField()\n    longitude = models.FloatField()\n    rayon = models.FloatField(help_text=\"Rayon en mètres autour du point central\") \n    def __str__(self):\n        return self.name",
+        "peekOfCode": "def user_directory_path(instance, filename):\n    return f\"images/user_{instance.user_profile.user.id}/{filename}\"\nclass ZoneAgro(models.Model):\n    name = models.CharField(max_length=100, unique=True)\n    description = models.TextField(blank=True, null=True)\n    latitude = models.FloatField()\n    longitude = models.FloatField()\n    rayon = models.FloatField(help_text=\"Rayon en mètres autour du point central\")\n    def __str__(self):\n        return self.name",
         "detail": "recognition.models",
         "documentation": {}
     },
@@ -926,7 +942,7 @@
         "kind": 6,
         "importPath": "recognition.serializers",
         "description": "recognition.serializers",
-        "peekOfCode": "class ObservationSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Observation\n        fields = ['image', 'latitude', 'longitude']\nclass UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:\n        model = User",
+        "peekOfCode": "class ObservationSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Observation\n        fields = [\"image\", \"latitude\", \"longitude\"]\nclass UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:\n        model = User",
         "detail": "recognition.serializers",
         "documentation": {}
     },
@@ -935,7 +951,7 @@
         "kind": 6,
         "importPath": "recognition.serializers",
         "description": "recognition.serializers",
-        "peekOfCode": "class UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:\n        model = User\n        fields = ['first_name', 'email', 'last_name']\n    def create(self, validated_data):\n        first_name = validated_data.pop('first_name')\n        last_name = validated_data.pop('last_name')",
+        "peekOfCode": "class UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:\n        model = User\n        fields = [\"first_name\", \"email\", \"last_name\"]\n    def create(self, validated_data):\n        first_name = validated_data.pop(\"first_name\")\n        last_name = validated_data.pop(\"last_name\")",
         "detail": "recognition.serializers",
         "documentation": {}
     },
@@ -944,7 +960,7 @@
         "kind": 6,
         "importPath": "recognition.serializers",
         "description": "recognition.serializers",
-        "peekOfCode": "class AdminRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=True)\n    password = serializers.CharField(write_only=True, required=True)\n    first_name = serializers.CharField(max_length=100, required=True)\n    last_name = serializers.CharField(max_length=100, required=True)\n    class Meta:\n        model = User\n        fields = ['email', 'password', 'first_name', 'last_name']\n    def create(self, validated_data):\n        email = validated_data.pop('email')",
+        "peekOfCode": "class AdminRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=True)\n    password = serializers.CharField(write_only=True, required=True)\n    first_name = serializers.CharField(max_length=100, required=True)\n    last_name = serializers.CharField(max_length=100, required=True)\n    class Meta:\n        model = User\n        fields = [\"email\", \"password\", \"first_name\", \"last_name\"]\n    def create(self, validated_data):\n        email = validated_data.pop(\"email\")",
         "detail": "recognition.serializers",
         "documentation": {}
     },
@@ -953,7 +969,7 @@
         "kind": 5,
         "importPath": "recognition.serializers",
         "description": "recognition.serializers",
-        "peekOfCode": "User = get_user_model()\nclass ObservationSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Observation\n        fields = ['image', 'latitude', 'longitude']\nclass UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:",
+        "peekOfCode": "User = get_user_model()\nclass ObservationSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Observation\n        fields = [\"image\", \"latitude\", \"longitude\"]\nclass UserRegisterSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(required=False, allow_blank=True)\n    last_name = serializers.CharField(max_length=100)\n    first_name = serializers.CharField(max_length=100)\n    class Meta:",
         "detail": "recognition.serializers",
         "documentation": {}
     },
@@ -962,7 +978,7 @@
         "kind": 5,
         "importPath": "recognition.urls",
         "description": "recognition.urls",
-        "peekOfCode": "urlpatterns = [\n    path('predict/', PredictLarvalStage.as_view(), name='predict_larval_stage'),\n    path('register/', RegisterAPIView.as_view(), name='register'),\n    path('register-admin/', AdminRegisterAPIView.as_view(), name='register_admin'),\n    path('update-test-success/', UpdateTestSuccessView.as_view(), name='update-test-success'),\n    # path('login/', LoginAPIView.as_view(), name='login'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"predict/\", PredictLarvalStage.as_view(), name=\"predict_larval_stage\"),\n    path(\"register/\", RegisterAPIView.as_view(), name=\"register\"),\n    path(\"register-admin/\", AdminRegisterAPIView.as_view(), name=\"register_admin\"),\n    path(\n        \"update-test-success/\",\n        UpdateTestSuccessView.as_view(),\n        name=\"update-test-success\",\n    ),\n    # path('login/', LoginAPIView.as_view(), name='login'),",
         "detail": "recognition.urls",
         "documentation": {}
     },
@@ -980,7 +996,7 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():\n            observation = serializer.save(user_profile=user.userprofile)",
+        "peekOfCode": "class PredictLarvalStage(APIView):\n    @csrf_exempt\n    def post(self, request):\n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response(\n                {\"error\": \"Utilisateur non trouvé\"}, status=status.HTTP_400_BAD_REQUEST\n            )",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -989,7 +1005,7 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class UpdateTestSuccessView(APIView):\n    def post(self, request):\n        user_id = request.data.get('user_id')\n        test_id = request.data.get('observation_id')\n        success_user = request.data.get('success_according_user')\n        if user_id is None or test_id is None or success_user is None:\n            return Response({\"error\": \"Tous les champs sont requis.\"}, status=status.HTTP_400_BAD_REQUEST)\n        try:\n            user_profile = UserProfile.objects.get(user_id=user_id)\n            observation = Observation.objects.get(id=test_id, user_profile=user_profile)",
+        "peekOfCode": "class UpdateTestSuccessView(APIView):\n    @csrf_exempt\n    def post(self, request):\n        user_id = request.data.get(\"user_id\")\n        test_id = request.data.get(\"observation_id\")\n        success_user = request.data.get(\"success_according_user\")\n        if user_id is None or test_id is None or success_user is None:\n            return Response(\n                {\"error\": \"Tous les champs sont requis.\"},\n                status=status.HTTP_400_BAD_REQUEST,",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -998,7 +1014,7 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class RegisterAPIView(APIView):\n    def post(self, request):\n        serializer = UserRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response({\n                'success': True,\n                'user': {\n                    'id': user.id,\n                    'last_name': user.userprofile.last_name,",
+        "peekOfCode": "class RegisterAPIView(APIView):\n    @csrf_exempt\n    def post(self, request):\n        serializer = UserRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response(\n                {\n                    \"success\": True,\n                    \"user\": {",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -1007,7 +1023,7 @@
         "kind": 6,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "class AdminRegisterAPIView(APIView):\n    def post(self, request):\n        serializer = AdminRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response({\n                'user': {\n                    'id': user.id,\n                    'email': user.email,\n                    'first_name': user.first_name,",
+        "peekOfCode": "class AdminRegisterAPIView(APIView):\n    @csrf_exempt\n    def post(self, request):\n        serializer = AdminRegisterSerializer(data=request.data)\n        if serializer.is_valid():\n            user = serializer.save()\n            return Response(\n                {\n                    \"user\": {\n                        \"id\": user.id,",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -1016,7 +1032,7 @@
         "kind": 5,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "User = get_user_model()\nFASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')\nclass PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)",
+        "peekOfCode": "User = get_user_model()\nFASTAPI_URL = os.getenv(\"FASTAPI_URL\", \"https://localhost:7860\")\nHF_TOKEN = os.getenv(\"HF_TOKEN\")\nclass PredictLarvalStage(APIView):\n    @csrf_exempt\n    def post(self, request):\n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -1025,7 +1041,16 @@
         "kind": 5,
         "importPath": "recognition.views",
         "description": "recognition.views",
-        "peekOfCode": "FASTAPI_URL = os.getenv('FASTAPI_URL', 'http://localhost:7860')\nclass PredictLarvalStage(APIView):\n    def post(self, request): \n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response({'error': 'Utilisateur non trouvé'}, status=status.HTTP_400_BAD_REQUEST)\n        serializer = ObservationSerializer(data=request.data)\n        if serializer.is_valid():",
+        "peekOfCode": "FASTAPI_URL = os.getenv(\"FASTAPI_URL\", \"https://localhost:7860\")\nHF_TOKEN = os.getenv(\"HF_TOKEN\")\nclass PredictLarvalStage(APIView):\n    @csrf_exempt\n    def post(self, request):\n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response(",
+        "detail": "recognition.views",
+        "documentation": {}
+    },
+    {
+        "label": "HF_TOKEN",
+        "kind": 5,
+        "importPath": "recognition.views",
+        "description": "recognition.views",
+        "peekOfCode": "HF_TOKEN = os.getenv(\"HF_TOKEN\")\nclass PredictLarvalStage(APIView):\n    @csrf_exempt\n    def post(self, request):\n        user_id = request.data.get(\"user_id\")\n        try:\n            user = User.objects.get(pk=user_id)\n        except User.DoesNotExist:\n            return Response(\n                {\"error\": \"Utilisateur non trouvé\"}, status=status.HTTP_400_BAD_REQUEST",
         "detail": "recognition.views",
         "documentation": {}
     },
@@ -1057,20 +1082,11 @@
         "documentation": {}
     },
     {
-        "label": "#BASE_DIR",
-        "kind": 5,
-        "importPath": "spodoptera_backend.settings",
-        "description": "spodoptera_backend.settings",
-        "peekOfCode": "#BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True",
-        "detail": "spodoptera_backend.settings",
-        "documentation": {}
-    },
-    {
         "label": "SECRET_KEY",
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]",
+        "peekOfCode": "SECRET_KEY = \"django-insecure-sxv#(+(9te-&+x^=^_+%x@gvey0yaszl1m3s4jqn&m5#qt77t5\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"[::1]\",\n    \"spodoptera-backend.onrender.com\",\n    \"p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n]",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1079,7 +1095,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"[::1]\",\n    \"spodoptera-backend.onrender.com\",\n    \"p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n]\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_CREDENTIALS = True",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1088,16 +1104,16 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\"localhost\", \"127.0.0.1\", \"[::1]\",\"spodoptera-backend.onrender.com\", \"spodoptera-backend.pythonanywhere.com\"]\nCORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",",
+        "peekOfCode": "ALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"[::1]\",\n    \"spodoptera-backend.onrender.com\",\n    \"p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n]\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
     {
-        "label": "CORS_ALLOWED_ORIGINS",
+        "label": "CORS_ALLOW_ALL_ORIGINS",
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "CORS_ALLOWED_ORIGINS = []\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
+        "peekOfCode": "CORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    \"content-type\",\n    \"x-requested-with\",\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\",\n]",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1106,7 +1122,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",",
+        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCORS_ALLOW_HEADERS = [\n    \"content-type\",\n    \"x-requested-with\",\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\",\n]\nCSRF_COOKIE_SAMESITE = \"Lax\"",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1115,7 +1131,52 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "CORS_ALLOW_HEADERS = [\n    'content-type',\n    'x-requested-with',\n]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
+        "peekOfCode": "CORS_ALLOW_HEADERS = [\n    \"content-type\",\n    \"x-requested-with\",\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\",\n]\nCSRF_COOKIE_SAMESITE = \"Lax\"\nCSRF_COOKIE_SECURE = True",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_TRUSTED_ORIGINS",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = [\n    \"https://p01--spodoptera-backend--g8549jdrj8hj.code.run\",\n    \"http://localhost\",\n]\nCSRF_COOKIE_SAMESITE = \"Lax\"\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SAMESITE = \"Lax\"\nSESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_COOKIE_SAMESITE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CSRF_COOKIE_SAMESITE = \"Lax\"\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SAMESITE = \"Lax\"\nSESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_COOKIE_SECURE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "CSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SAMESITE = \"Lax\"\nSESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_COOKIE_SAMESITE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "SESSION_COOKIE_SAMESITE = \"Lax\"\nSESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_COOKIE_SECURE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "SESSION_COOKIE_SECURE = True\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"corsheaders\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1124,7 +1185,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"rest_framework.authtoken\",\n    \"recognition\",",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"corsheaders\",\n    \"rest_framework\",\n    \"rest_framework.authtoken\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1133,7 +1194,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\nROOT_URLCONF = \"spodoptera_backend.urls\"",
+        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"whitenoise.middleware.WhiteNoiseMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"corsheaders.middleware.CorsMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1160,7 +1221,16 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "WSGI_APPLICATION = \"spodoptera_backend.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": env(\"DATABASE_HOST\"),",
+        "peekOfCode": "WSGI_APPLICATION = \"spodoptera_backend.wsgi.application\"\nSTATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),",
+        "detail": "spodoptera_backend.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_STORAGE",
+        "kind": 5,
+        "importPath": "spodoptera_backend.settings",
+        "description": "spodoptera_backend.settings",
+        "peekOfCode": "STATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": env(\"DATABASE_NAME\"),\n        \"USER\": env(\"DATABASE_USER\"),\n        \"PASSWORD\": env(\"DATABASE_PASSWORD\"),\n        \"HOST\": env(\"DATABASE_HOST\"),",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1178,7 +1248,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.settings",
         "description": "spodoptera_backend.settings",
-        "peekOfCode": "AUTH_USER_MODEL = 'recognition.CustomUser'\n# Password validation\n# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },",
+        "peekOfCode": "AUTH_USER_MODEL = \"recognition.CustomUser\"\n# Password validation\n# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },",
         "detail": "spodoptera_backend.settings",
         "documentation": {}
     },
@@ -1286,7 +1356,7 @@
         "kind": 5,
         "importPath": "spodoptera_backend.urls",
         "description": "spodoptera_backend.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path('api/', include('recognition.urls')),\n    path('admin-stats/', include('recognition.admin.urls')),\n    path('', RedirectView.as_view(url='/admin-stats/', permanent=False)),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path(\"api/\", include(\"recognition.urls\")),\n    path(\"admin-stats/\", include(\"recognition.admin.urls\")),\n    path(\"\", RedirectView.as_view(url=\"/admin-stats/\", permanent=False)),\n]",
         "detail": "spodoptera_backend.urls",
         "documentation": {}
     },
